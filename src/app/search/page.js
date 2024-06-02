@@ -17,6 +17,7 @@ export default function Search() {
         <div className="container mx-auto">
             <div className="my-2 rounded-lg bg-white shadow p-4">
                 <div className="font-bold text-gray-600">لیست پزشکان دکتر زوشا</div>
+                
             </div>
 
             <div className="my-8 grid grid-cols-12 gap-8">
