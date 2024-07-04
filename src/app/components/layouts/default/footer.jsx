@@ -13,17 +13,20 @@ export function Footer() {
 
                 <div className="container mx-auto py-20">
 
-                    <div className="text-white grid grid-cols-2 gap-6">
+                    <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-6 ">
 
-                        <div>
+                        <div className="p-3 md:p-0">
                             <Image src={'/logo-light.png'} alt="logo dr zosha" width={100} height={100} />
                             <p className="mt-3 text-xs leading-6">دکتر زوشا ساده‌ترین راه نوبت‌ دهی اینترنتی و مشاوره آنلاین پزشکان ایران است. پزشکان به کمک دکتر زوشا می‌توانند امکان نوبت دهی اینترنتی و مشاوره تلفنی خود را فعال کنند. به این ترتیب بیمار برای نوبت گیری از دکتر نیاز به روش‌های سنتی مثل تلفن زدن یا مراجعه حضوری ندارد.</p>
 
                             <div className="mt-5">
-                                <Link className="flex items-center" href={'tel:02142198000'}>
+                                <Link className="flex items-center" href={'tel:02191694962'}>
                                     <SupportIcon />
-                                    <span className="mr-2 text-sm">پشتیبانی  ۴۲۱۹۸۰۰۰ (۰۲۱)</span>
+                                    <span className="mr-2 text-sm">پشتیبانی  91694962 (۰۲۱)</span>
                                 </Link>
+                                {/* <Link className="flex items-center mt-3" href={'tel:02188542062'}>
+                                    <span className="mr-2 text-sm">  88542062 (۰۲۱)</span>
+                                </Link> */}
                             </div>
 
                             <div className="mt-5">

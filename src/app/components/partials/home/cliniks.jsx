@@ -18,8 +18,8 @@ export function Clinics() {
         <div className="my-28">
             
             <div className="flex items-center justify-between">
-                <h2 className="font-bold text-2xl">کلینیک و مراکز درمانی </h2>
-                <Link className="text-gray-500 hover:text-violet-800 text-sm transition-all" href={'/'}>مشاهده همه</Link>
+                <h2 className="font-bold text-sm md:text-2xl">کلینیک و مراکز درمانی </h2>
+                <Link className="text-gray-500 hover:text-violet-800 text-xs md:text-sm transition-all" href={'/'}>مشاهده همه</Link>
             </div>
 
             <div className="mb-4 border-b border-gray-200 dark:border-gray-700 mt-4">
@@ -45,7 +45,7 @@ export function Clinics() {
                     </li>
                 </ul>
             </div>
-            <div className="grid grid-cols-4 gap-3 mt-4">
+            <div className="grid  grid-cols-1 md:grid-cols-4 gap-3 mt-4">
 
                 <div className="bg-white shadow-sm rounded h-56 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">

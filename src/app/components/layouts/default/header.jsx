@@ -13,7 +13,7 @@ export function HeaderDefault() {
                         <Link href="/"><Image src={'/logo.png'} width={80} height={80} alt="logo dr zosha" /> </Link>
                     </div>
 
-                    <div className="flex-1 flex items-center justify-between px-5">
+                    <div className="flex-1 hidden md:flex items-center justify-between px-5">
                         <div>
                             {
                                 Menus.map((item, index) => {

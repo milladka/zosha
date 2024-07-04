@@ -11,10 +11,14 @@ import { Phone } from "../utils/icons/phone";
 import { StarIcon } from "../utils/icons/star";
 import { SparkleIcon } from "../utils/icons/sparkle";
 import Link from "next/link";
+import { Breadcrumbs } from "../constant/breadcrumbs";
 
 export default function Search() {
     return (
         <div className="container mx-auto">
+            <div className="my-5">
+                <Breadcrumbs pages={[{title:'رزرو نوبت و مشاوره'}]} />
+            </div>
             <div className="my-2 rounded-lg bg-white shadow p-4">
                 <div className="font-bold text-gray-600">لیست پزشکان دکتر زوشا</div>
             </div>
@@ -54,10 +58,10 @@ export default function Search() {
 
                             </div>
                             <div className="flex items-center justify-center w-full p-2">
-                                <Image className="rounded-full mt-2" src="/assets/doctors/1.webp" width={60} height={60} />
+                                <Image className="rounded-full mt-2" src="/assets/doctors/2.webp" width={60} height={60} />
                             </div>
                             <div className="text-center w-full font-bold mt-2">
-                                دکتر میلاد کریمی
+                            نرگس صارمی
                             </div>
                             <div className="text-center w-full text-xs font-light mt-2 text-slate-500">
                                 دکترای حرفه ای دندانپزشکی
@@ -89,7 +93,7 @@ export default function Search() {
                                     <span className="mr-1 mt-1 text-xs font-light">4.5</span>
                                 </div>
                                 <div>
-                                    <SparkleIcon />
+                                    {/* <SparkleIcon /> */}
                                 </div>
 
                             </div>
@@ -97,10 +101,10 @@ export default function Search() {
                                 <Image className="rounded-full mt-2" src="/assets/doctors/1.webp" width={60} height={60} />
                             </div>
                             <div className="text-center w-full font-bold mt-2">
-                                دکتر میلاد کریمی
+                                دکتر نسیبه حسنی جبلی
                             </div>
                             <div className="text-center w-full text-xs font-light mt-2 text-slate-500">
-                            تخصص بیماری‌های پوست (درماتولوژی)
+                                تخصص بیماری‌های پوست (درماتولوژی)
                             </div>
                             <div className="flex items-center justify-center mt-2">
                                 <LocationIcon small />
@@ -114,16 +118,12 @@ export default function Search() {
                             </div>
 
                             <div className="mt-2">
-                                <Link href="/" className="block text-center w-full py-2 rounded-lg bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
+                                <Link href="/dr/milad" className="block text-center w-full py-2 rounded-lg bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
                                     رزرو نوبت
                                 </Link>
-
                             </div>
 
                         </div>
-
-
-
                     </div>
 
                 </div>
