@@ -17,7 +17,7 @@ export function Footer() {
 
                         <div className="p-3 md:p-0">
                             <Image src={'/logo-light.png'} alt="logo dr zosha" width={100} height={100} />
-                            <div className="text-sm font-bold">دکتر زوشا ارائه دهنده خدمات آنلاین در حوزه سلامت زیبایی (نوبت گیری اینترنتی، مشاوره آنلاین و ...)</div>
+                            <div className="text-xs md:text-sm font-bold leading-6">دکتر زوشا ارائه دهنده خدمات آنلاین در حوزه سلامت زیبایی (نوبت گیری اینترنتی، مشاوره آنلاین و ...)</div>
                             <p className="mt-3 text-xs leading-6">دکتر زوشا ساده‌ترین راه نوبت‌ دهی اینترنتی و مشاوره آنلاین پزشکان ایران است. پزشکان به کمک دکتر زوشا می‌توانند امکان نوبت دهی اینترنتی و مشاوره تلفنی خود را فعال کنند. به این ترتیب بیمار برای نوبت گیری از دکتر نیاز به روش‌های سنتی مثل تلفن زدن یا مراجعه حضوری ندارد.</p>
 
                             <div className="mt-5">
@@ -69,7 +69,7 @@ export function Footer() {
 
                 <div className="container mx-auto">
                     <div className="py-3 bg-violet-900 rounded-t shadow-lg opacity-80">
-                        <div className="text-white text-xs text-center">
+                        <div className="text-white text-xs leading-6 text-center">
                         تمامی حقوق مادی و معنوی متعلق به دکتر زوشا (شرکت آینده اندیشان به آفرید) می باشد                        </div>
                     </div>
                 </div>
