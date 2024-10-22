@@ -1,23 +1,23 @@
 export const Menus = [
     {
         text: 'نوبت‌دهی',
-        url: '/about'
+        url: '/search'
     },
     {
         text: 'مشاوره تلفنی',
-        url: '/'
+        url: '/search'
     },
     {
         text: 'مشاوره متنی',
-        url: '/'
+        url: '/search'
     },
     {
         text: 'مراکز درمانی',
-        url: '/'
+        url: '/search'
     },
     {
         text: 'تخصص‌ها',
-        url: '/'
+        url: '/search'
     },
     {
         text: 'مجله سلامت',

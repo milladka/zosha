@@ -1,7 +1,7 @@
 import { Menus } from "@/app/constant/menus";
-import { LoginIcon } from "@/app/utils/icons/login";
 import Image from "next/image";
 import Link from "next/link";
+import { LoginPopup } from "../../partials/auth/login-popup";
 
 export function HeaderDefault() {
     return (
@@ -24,11 +24,8 @@ export function HeaderDefault() {
                             }
                         </div>
                         <div className="flex items-center justify-center">
-                            <Link className="font-bold mx-3 text-xs text-violet-700 hover:text-violet-900 transition-all" href={'/'}>ورود پزشکان</Link>
-                            <button className="flex items-center justify-center rounded border border-inherit px-3 py-2 hover:bg-slate-100 transition-all hover:border-slate-400">
-                                <LoginIcon />
-                                <span className="mr-2">ورود کاربر</span>
-                            </button>
+                            {/* <Link className="font-bold mx-3 text-xs text-violet-700 hover:text-violet-900 transition-all" href={'/'}>ورود پزشکان</Link> */}
+                            <LoginPopup />
                         </div>
                     </div>
 
@@ -40,6 +37,10 @@ export function HeaderDefault() {
                             <Image src={'/logo.png'} width={40} height={40} alt="Logo DRZOSHA" />
                             <div className="mr-2 text-sm font-bold+">دکتر زوشا</div>
                         </Link>
+                    </div>
+                    <div className="flex items-center justify-center">
+                        {/* <Link className="font-bold mx-3 text-xs text-violet-700 hover:text-violet-900 transition-all" href={'/'}>ورود پزشکان</Link> */}
+                        <LoginPopup />
                     </div>
 
                 </div>

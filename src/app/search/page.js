@@ -25,7 +25,7 @@ export default function Search() {
 
             <div className="my-8 grid grid-cols-12 gap-8">
 
-                <div className="col-span-3 sticky top-32" style={{ maxHeight: 'calc(100vh - 118px - 32px)' }}>
+                <div className="hidden md:block col-span-3 sticky top-32" style={{ maxHeight: 'calc(100vh - 118px - 32px)' }}>
                     <div className="bg-white rounded-lg shadow">
                         <div className="p-3">
                             <div className="font-bold">فیلتر‌ها</div>
@@ -43,8 +43,8 @@ export default function Search() {
 
                 </div>
 
-                <div className="col-span-9">
-                    <div className="grid grid-cols-2 gap-8">
+                <div className="col-span-12 md:col-span-9">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                         <div className="bg-white shadow rounded-xl p-3">
                             <div className="flex items-center justify-between">

@@ -27,7 +27,7 @@ export function SearchBox() {
                 </div>
 
             </div>
-            <div className="py-5 text-slate-500 text-xs text-center">دکتر میلاد کریمی متخصص نازایی</div>
+            <div className="py-5 text-slate-500 text-xs text-center">دکتر مهری رشیدی متخصص بیماریهای پوستی</div>
             <ModalCity />
         </div>
     )
