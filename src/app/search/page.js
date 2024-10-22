@@ -16,8 +16,8 @@ import { Breadcrumbs } from "../constant/breadcrumbs";
 export default function Search() {
     return (
         <div className="container mx-auto">
-            <div className="my-5">
-                <Breadcrumbs pages={[{title:'رزرو نوبت و مشاوره'}]} />
+            <div className="my-2 md:my-5">
+                <Breadcrumbs pages={[{ title: 'رزرو نوبت و مشاوره' }]} />
             </div>
             <div className="my-2 rounded-lg bg-white shadow p-4">
                 <div className="font-bold text-gray-600">لیست پزشکان دکتر زوشا</div>
@@ -61,7 +61,7 @@ export default function Search() {
                                 <Image className="rounded-full mt-2" src="/assets/doctors/2.webp" width={60} height={60} />
                             </div>
                             <div className="text-center w-full font-bold mt-2">
-                            نرگس صارمی
+                                نرگس صارمی
                             </div>
                             <div className="text-center w-full text-xs font-light mt-2 text-slate-500">
                                 دکترای حرفه ای دندانپزشکی
@@ -81,7 +81,6 @@ export default function Search() {
                                 <Link href="/" className="block text-center w-full py-2 rounded-lg bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
                                     رزرو نوبت
                                 </Link>
-
                             </div>
 
                         </div>

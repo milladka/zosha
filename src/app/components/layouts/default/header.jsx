@@ -6,11 +6,11 @@ import Link from "next/link";
 export function HeaderDefault() {
     return (
         <header className="bg-white shadow w-full py-2 shadow-gray-100 fixed z-50">
-            <div className="container mx-auto p-1">
-                <div className="flex items-center justify-between">
+            <div className="container mx-auto p-2">
+                <div className="hidden md:flex items-center justify-between">
 
                     <div>
-                        <Link href="/"><Image src={'/logo.png'} width={80} height={80} alt="logo dr zosha" /> </Link>
+                        <Link href="/"><Image src={'/logo.png'} width={60} height={60} alt="logo dr zosha" /> </Link>
                     </div>
 
                     <div className="flex-1 hidden md:flex items-center justify-between px-5">
@@ -30,6 +30,16 @@ export function HeaderDefault() {
                                 <span className="mr-2">ورود کاربر</span>
                             </button>
                         </div>
+                    </div>
+
+                </div>
+                <div className="flex md:hidden items-center justify-between">
+
+                    <div>
+                        <Link href="/" className="flex items-center">
+                            <Image src={'/logo.png'} width={40} height={40} alt="Logo DRZOSHA" />
+                            <div className="mr-2 text-sm font-bold+">دکتر زوشا</div>
+                        </Link>
                     </div>
 
                 </div>

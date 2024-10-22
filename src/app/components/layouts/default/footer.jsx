@@ -33,7 +33,7 @@ export function Footer() {
 
                                 <Link className="inline-block text-sm" href="/terms">قوانین و مقررات</Link>
                                 <Link className="inline-block mr-4 text-sm" href="/privacy-policy">حریم خصوصی</Link>
-                                <Link className="inline-block mr-4 text-sm" href="/faqs">سوالات متداول</Link>
+                                <Link className="inline-block mr-4 text-sm" href="/faq">سوالات متداول</Link>
 
                             </div>
 

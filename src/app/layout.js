@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       <body className={`${iransans.variable} font-sans`}>
         <main className='bg-[#f4faff] min-h-screen'>
           <HeaderDefault />
-          <div className='pt-28'>
+          <div className='pt-24 md:pt-28'>
             {children}
             <Footer />
           </div>
