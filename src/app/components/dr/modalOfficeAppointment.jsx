@@ -56,7 +56,7 @@ export function ModalOfficeAppointment() {
                         <div className="flex items-center justify-center flex-wrap">
                             {
                                 Array(7).fill().map((d, i) => (
-                                    <button onClick={() => setSelectDay(i)} className={`${selectDay == i ? 'border-violet-500 text-violet-800 bg-violet-100' : 'border-slate-300 text-slate-500'} w-20 h-20 rounded border p-2 mx-1`}>{days(i)}</button>
+                                    <button key={i} onClick={() => setSelectDay(i)} className={`${selectDay == i ? 'border-violet-500 text-violet-800 bg-violet-100' : 'border-slate-300 text-slate-500'} w-20 h-20 rounded border p-2 mx-1`}>{days(i)}</button>
                                 ))
                             }
                         </div>
@@ -64,7 +64,7 @@ export function ModalOfficeAppointment() {
                             {
 
                                 Array(10).fill().map((d, i) => (
-                                    <button onClick={() => setSelectTime(i + 1)} className={`${selectTime == i + 1 ? 'border-violet-500 text-violet-800 bg-violet-100' : 'border-slate-300 text-slate-500'} w-20 h-10 rounded border p-2 m-1`}>{times(i + 1)}</button>
+                                    <button key={i} onClick={() => setSelectTime(i + 1)} className={`${selectTime == i + 1 ? 'border-violet-500 text-violet-800 bg-violet-100' : 'border-slate-300 text-slate-500'} w-20 h-10 rounded border p-2 m-1`}>{times(i + 1)}</button>
                                 ))
 
                             }
