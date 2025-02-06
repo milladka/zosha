@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 export const cityStore = create((set) => ({
-    city: 19,
+    city: 24,
     setCity: (id) => set(() => ({ city: id })),
     modalCity: false,
     setModalCity: () => set((state) => ({ modalCity: !state.modalCity })),

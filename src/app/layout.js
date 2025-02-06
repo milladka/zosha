@@ -3,6 +3,7 @@ import 'react-range-slider-input/dist/style.css';
 import "./globals.css";
 import { HeaderDefault } from './components/layouts/default/header';
 import { Footer } from './components/layouts/default/footer';
+import { ToastContainer } from 'react-toastify';
 
 const iransans = localFont({
   src: [
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
           <div className='pt-24 md:pt-28'>
             {children}
             <Footer />
+            <ToastContainer />
           </div>
         </main>
       </body>

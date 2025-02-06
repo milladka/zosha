@@ -12,13 +12,16 @@ import { StarIcon } from "../utils/icons/star";
 import { SparkleIcon } from "../utils/icons/sparkle";
 import Link from "next/link";
 import { Breadcrumbs } from "../constant/breadcrumbs";
+import { LikeIcon } from "../utils/icons/like";
 
 export default function Search() {
     return (
         <div className="container mx-auto">
+
             <div className="my-2 md:my-5">
                 <Breadcrumbs pages={[{ title: 'رزرو نوبت و مشاوره' }]} />
             </div>
+
             <div className="my-2 rounded-lg bg-white shadow p-4">
                 <div className="font-bold text-gray-600">لیست پزشکان دکتر زوشا</div>
             </div>
@@ -48,9 +51,15 @@ export default function Search() {
 
                         <div className="bg-white shadow rounded-xl p-3">
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center justify-start">
-                                    <StarIcon />
-                                    <span className="mr-1 mt-1 text-xs font-light">4.5</span>
+                                <div className="flex items-center justify-center">
+                                    <div className="flex items-center justify-start">
+                                        <StarIcon />
+                                        <span className="mr-1 mt-1 text-xs font-light">4.5</span>
+                                    </div>
+                                    <div className="flex items-center justify-start mr-2">
+                                        <LikeIcon />
+                                        <span className="mr-1 mt-1 text-xs font-light">97% پیشنهاد کاربران</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <SparkleIcon />
@@ -87,9 +96,15 @@ export default function Search() {
 
                         <div className="bg-white shadow rounded-xl p-3">
                             <div className="flex items-center justify-between">
-                                <div className="flex items-center justify-start">
-                                    <StarIcon />
-                                    <span className="mr-1 mt-1 text-xs font-light">4.5</span>
+                                <div className="flex items-center justify-center">
+                                    <div className="flex items-center justify-start">
+                                        <StarIcon />
+                                        <span className="mr-1 mt-1 text-xs font-light">4.5</span>
+                                    </div>
+                                    <div className="flex items-center justify-start mr-2">
+                                        <LikeIcon />
+                                        <span className="mr-1 mt-1 text-xs font-light">100% پیشنهاد کاربران</span>
+                                    </div>
                                 </div>
                                 <div>
                                     {/* <SparkleIcon /> */}
