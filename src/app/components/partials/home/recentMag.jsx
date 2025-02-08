@@ -14,7 +14,11 @@ export function RecentMag() {
                 <div className="bg-white shadow-sm rounded h-60 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/blog/Dermatology.jpg'} objectFit="cover" fill alt="blog" />
+
+                            <div style={{ position: "relative", width: "261px", height: "144px" }}>
+                                <Image src="/assets/blog/Dermatology.jpg" alt="clinic-dr-zosha" layout="fill" objectFit="fill" />
+                            </div>
+
                         </div>
                         <div className="font-bold p-2">
                             <div className="h-12 hover:text-violet-800 transition-all">تخصص پوست و مو چیست و دکتر پوست کیست؟</div>
@@ -28,7 +32,11 @@ export function RecentMag() {
                 <div className="bg-white shadow-sm rounded h-60 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/blog/Exfoliating-cream.webp'} objectFit="cover" fill alt="blog" />
+
+                            <div style={{ position: "relative", width: "261px", height: "144px" }}>
+                                <Image src="/assets/blog/Exfoliating-cream.webp" alt="clinic-dr-zosha" layout="fill" objectFit="fill" />
+                            </div>
+
                         </div>
                         <div className="font-bold p-2">
                             <div className="h-12 hover:text-violet-800 transition-all">بهترین کرم های لایه بردار ایرانی و خارجی</div>
@@ -42,7 +50,11 @@ export function RecentMag() {
                 <div className="bg-white shadow-sm rounded h-60 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/blog/Dry-hair-routine.webp'} objectFit="cover" fill alt="blog" />
+
+                            <div style={{ position: "relative", width: "261px", height: "144px" }}>
+                                <Image src="/assets/blog/Dry-hair-routine.webp" alt="clinic-dr-zosha" layout="fill" objectFit="fill" />
+                            </div>
+
                         </div>
                         <div className="font-bold p-2">
                             <div className="h-12 hover:text-violet-800 transition-all">۶ نکته مهم برای روتین مو خشک که باید بدانید</div>
@@ -56,7 +68,11 @@ export function RecentMag() {
                 <div className="bg-white shadow-sm rounded h-60 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/blog/HAIR-VIT.webp'} objectFit="cover" fill alt="blog" />
+
+                            <div style={{ position: "relative", width: "261px", height: "144px" }}>
+                                <Image src="/assets/blog/HAIR-VIT.webp" alt="clinic-dr-zosha" layout="fill" objectFit="fill" />
+                            </div>
+
                         </div>
                         <div className="font-bold p-2">
                             <div className="h-12 hover:text-violet-800 transition-all">نقد و بررسی قرص هیرویت</div>

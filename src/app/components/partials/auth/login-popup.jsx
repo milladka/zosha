@@ -1,87 +1,129 @@
 'use client'
+const FormData = require('form-data');
 import { useEffect, useState, useRef } from "react";
 import { LoginIcon } from "@/app/utils/icons/login";
 import { CloseIcon } from "@/app/utils/icons/close";
 import { toast } from 'react-toastify';
-import { ProfileIcon } from "@/app/utils/icons/profile";
 import { getCookie, setCookie } from "cookies-next";
-import { API_URL } from "@/app/config";
 import AxiosInstance from "@/app/config/axiosInstance";
+import { LoadingIcon } from "@/app/utils/icons/loading";
+import { turnStore } from "@/app/store/turnHandleStore";
+import MenuUser from "./menu-user";
 
 export function LoginPopup() {
     const fetchedRef = useRef(false);
-    const [loginOpen, setLoginOpen] = useState(false);
-    const [stage, setStage] = useState(1);
-    const [mobile, setMobile] = useState('');
-    const [code, setCode] = useState('');
-    const [logined, setLogined] = useState(false);
-    function send() {
-        toast.success("با موفقیت وارد شدید");
-        setLoginOpen(!loginOpen)
-        setLogined(true);
+    const { user, logined, setUser } = turnStore();
+
+    const [data, setData] = useState({
+        loading: true,
+        loadingRegister: false,
+        loadingCode: false,
+        stage: 1,
+        mobile: '',
+        code: '',
+        idCode: '',
+        loginOpen: false
+    })
+
+    const handleRegister = () => {
+        setData((prevState) => ({ ...prevState, loadingRegister: true }));
+        let formData = new FormData();
+        formData.append('mobile', data.mobile);
+        AxiosInstance.post('/auth/register', formData)
+            .then((res) => {
+                setData((prevState) => ({ ...prevState, idCode: res.data.id, stage: 2, loadingRegister: false }));
+            })
+            .catch(() => {
+                toast.error("خطایی رخ داده است");
+                setData((prevState) => ({ ...prevState, loadingRegister: false }));
+            })
+    }
+
+    const handleSend = () => {
+        setData((prevState) => ({ ...prevState, loadingCode: true }));
+        let formData = new FormData();
+        formData.append('id', data.idCode);
+        formData.append('otp', data.code);
+        formData.append('mobile', data.mobile);
+        AxiosInstance.post('/auth/login', formData)
+            .then(res => {
+                if (!res.data.error) {
+                    toast.success("با موفقیت وارد شدید");
+                    setCookie("authToken", res.data.token, { maxAge: (60 * 60 * 24 * 30) });
+                    setData((prevState) => ({ ...prevState, loadingCode: false, loginOpen: false, loading: true }));
+                    AxiosInstance.get('/user', {
+                        headers: { Authorization: `Bearer ${res.data.token}` }
+                    })
+                        .then(response => {
+                            setUser(response.data.data);
+                            setData((prevState) => ({ ...prevState, loading: false }));
+                        })
+                        .catch(error => {
+                            if (error.response && error.response.status == 401) {
+                                setCookie("authToken", "", { maxAge: -1 });
+                                setData((prevState) => ({ ...prevState, loading: false }))
+                            }
+                        })
+                } else {
+                    toast.error(res.data.message);
+                    setData((prevState) => ({ ...prevState, loadingCode: false }));
+                }
+            })
+            .catch(err => {
+                toast.error("خطایی رخ داده است");
+                setData((prevState) => ({ ...prevState, loadingCode: false }));
+            })
     }
 
     useEffect(() => {
         if (fetchedRef.current) return;
         fetchedRef.current = true;
         const token = getCookie("authToken");
-        setCookie("authToken", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InBhdGllbnQiLCJleHAiOjE3NDE1OTYxMDcsImlhdCI6MTczOTAwNDEwN30.MZRLa_PEtrUmcfyWRyGVqT0iG-vawf1zachJ0-a2il0", { maxAge: (60 * 60 * 24 * 30) });
-
         if (token) {
             AxiosInstance.get('/user', {
                 headers: { Authorization: `Bearer ${token}` }
             })
                 .then(response => {
-                    console.log(response.data.data);
+                    setUser(response.data.data);
+                    setData((prevState) => ({ ...prevState, loading: false }));
                 })
-                .catch(err => {
-                    console.log(err);
+                .catch(error => {
+                    if (error.response && error.response.status == 401) {
+                        setCookie("authToken", "", { maxAge: -1 });
+                        setData((prevState) => ({ ...prevState, loading: false }))
+                    }
                 })
-            // fetch(`${API_URL}/user`, {
-            //     headers: { Authorization: `Bearer ${token}` },
-            //     credentials: 'include',
-            // })
-            //     .then((res) => res.json())
-            //     .then((data) => {
-            //         if (data.success) {
-            //             //setUser(data.user);
-            //         } else {
-            //             // setCookie("authToken", "", { maxAge: -1 });
-            //         }
-            //     })
-            //     .catch(() => { }
-            //         // setCookie("authToken", "", { maxAge: -1 })
-            //     );
+        } else {
+            setData((prevState) => ({ ...prevState, loading: false }))
         }
     }, []);
     return (
 
         <>
-            <button onClick={() => setLoginOpen(!loginOpen)} className="flex items-center justify-center rounded border border-inherit px-3 py-2 hover:bg-slate-100 transition-all hover:border-slate-400">
-                {
+            {
+                data.loading ?
+                    <button disabled className="flex items-center justify-center rounded border border-inherit px-3 py-2 hover:bg-slate-100 transition-all hover:border-slate-400">
+                        <LoadingIcon />
+                    </button>
+                    :
                     logined ?
-                        <>
-                            <ProfileIcon />
-                            <div className="mr-2">میلاد کریمی</div>
-                        </>
+                        <MenuUser user={user} />
                         :
-                        <>
+                        <button onClick={() => setData((prevState) => ({ ...prevState, loginOpen: true }))} className="flex items-center justify-center rounded border border-inherit px-3 py-2 hover:bg-slate-100 transition-all hover:border-slate-400">
                             <LoginIcon />
                             <span className="mr-2">ورود کاربر</span>
-                        </>
-                }
-            </button>
+                        </button>
+            }
             {
-                loginOpen && <div className="fixed right-0 top-0 w-full h-full">
-                    <div onClick={() => setLoginOpen(!loginOpen)} className="bg-slate-800 opacity-75 top-0 right-0 w-full h-full"></div>
+                data.loginOpen && <div className="fixed right-0 top-0 w-full h-full">
+                    <div onClick={() => setData((prevState) => ({ ...prevState, loginOpen: false }))} className="bg-slate-800 opacity-75 top-0 right-0 w-full h-full"></div>
                     <div className="w-80 md:w-96 min-h-80 h-14 bg-white shadow-md rounded-lg p-3 md:p-5 absolute right-0 top-0  inset-0 m-auto">
-                        <button className="cursor-pointer" onClick={() => setLoginOpen(!loginOpen)}>
+                        <button className="cursor-pointer" onClick={() => setData((prevState) => ({ ...prevState, loginOpen: false }))}>
                             <CloseIcon />
                         </button>
-
                         <div className="text-center font-bold mb-3 text-lg text-violet-700">ورود / ثبت نام</div>
                         {
-                            stage == 1 ?
+                            data.stage == 1 ?
 
                                 <div>
                                     <div className="text-center mb-2 text-sm text-slate-500 leading-6">
@@ -91,9 +133,9 @@ export function LoginPopup() {
                                         <div className="mb-2 text-sm text-slate-500">
                                             شماره موبایل
                                         </div>
-                                        <input onChange={(e) => setMobile(e.target.value)} value={mobile} dir="ltr" type="text" className="w-full block outline-none border-2 border-slate-300 p-2 rounded text-left focus:border-violet-500" placeholder="09123456789" />
+                                        <input onChange={(e) => setData((prevState) => ({ ...prevState, mobile: e.target.value }))} value={data.mobile} dir="ltr" type="text" className="w-full block outline-none border-2 border-slate-300 p-2 rounded text-left focus:border-violet-500" placeholder="09123456789" />
                                         <div className="mt-2">
-                                            <button onClick={() => setStage(2)} href="/" className="block text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
+                                            <button disabled={data.loadingRegister} onClick={() => handleRegister()} href="/" className="block text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
                                                 ورود / ثبت نام
                                             </button>
                                         </div>
@@ -109,9 +151,9 @@ export function LoginPopup() {
                                         <div className="mb-2 text-sm text-slate-500">
                                             کد تایید
                                         </div>
-                                        <input onChange={(e) => setCode(e.target.value)} value={code} dir="ltr" type="text" className="w-full block outline-none border-2 border-slate-300 p-2 rounded text-left focus:border-violet-500" placeholder="" />
+                                        <input onChange={(e) => setData((prevState) => ({ ...prevState, code: e.target.value }))} value={data.code} dir="ltr" type="text" className="w-full block outline-none border-2 border-slate-300 p-2 rounded text-left focus:border-violet-500" placeholder="" />
                                         <div className="mt-2">
-                                            <button onClick={() => send()} className="block text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
+                                            <button disabled={data.loadingCode} onClick={() => handleSend()} className="block text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
                                                 تایید کد
                                             </button>
                                         </div>
@@ -119,9 +161,6 @@ export function LoginPopup() {
                                     </div>
                                 </div>
                         }
-
-
-
                     </div>
                 </div>
             }

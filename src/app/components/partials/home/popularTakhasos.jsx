@@ -12,25 +12,25 @@ export function PopularTakhasos() {
 
                 <div className="bg-white shadow-sm rounded h-48 text-center hover:shadow-md transition-all">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
-                        <Image src={'/assets/one.jpg'} height={150} width={150} />
+                        <Image alt="drzosha" src={'/assets/one.jpg'} height={150} width={150} />
                         <div className="font-bold">پوست و مو</div>
                     </Link>
                 </div>
                 <div className="bg-white shadow-sm rounded h-48 text-center hover:shadow-md transition-all">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
-                        <Image src={'/assets/two.jpg'} height={150} width={150} />
+                        <Image alt="drzosha" src={'/assets/two.jpg'} height={150} width={150} />
                         <div className="font-bold">جراح پلاستیک و زیبایی</div>
                     </Link>
                 </div>
                 <div className="bg-white shadow-sm rounded h-48 text-center hover:shadow-md transition-all">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
-                        <Image src={'/assets/three.jpg'} height={150} width={150} />
+                        <Image alt="drzosha" src={'/assets/three.jpg'} height={150} width={150} />
                         <div className="font-bold">دندانپزشکی زیبایی</div>
                     </Link>
                 </div>
                 <div className="bg-white shadow-sm rounded h-48 text-center hover:shadow-md transition-all">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
-                        <Image src={'/assets/four.jpg'} height={150} width={150} />
+                        <Image alt="drzosha" src={'/assets/four.jpg'} height={150} width={150} />
                         <div className="font-bold">گوش، حلق، بینی</div>
                     </Link>
                 </div>

@@ -16,7 +16,7 @@ export function Clinics() {
     }
     return (
         <div className="my-28">
-            
+
             <div className="flex items-center justify-between">
                 <h2 className="font-bold text-sm md:text-2xl">کلینیک و مراکز درمانی </h2>
                 <Link className="text-gray-500 hover:text-violet-800 text-xs md:text-sm transition-all" href={'/'}>مشاهده همه</Link>
@@ -50,7 +50,19 @@ export function Clinics() {
                 <div className="bg-white shadow-sm rounded h-56 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/clinics.jpg'} objectFit="cover" fill />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <Image
+                                    alt="clinic-dr-zosha"
+                                    src={'/assets/clinics.jpg'}
+                                    sizes="100vw"
+                                    width={261}
+                                    height={144}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto'
+                                    }}
+                                />
+                            </div>
                             <div className="bg-violet-700 opacity-20 absolute top-0 left-0 w-full h-full hover:opacity-0 transition-all"></div>
                         </div>
                         <div className="font-bold p-2 text-violet-700 ">
@@ -66,7 +78,19 @@ export function Clinics() {
                 <div className="bg-white shadow-sm rounded h-56 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/behdis.jpeg'} objectFit="cover" fill />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <Image
+                                    alt="clinic-dr-zosha"
+                                    src={'/assets/behdis.jpeg'}
+                                    sizes="100vw"
+                                    width={261}
+                                    height={144}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto'
+                                    }}
+                                />
+                            </div>
                             <div className="bg-violet-700 opacity-20 absolute top-0 left-0 w-full h-full hover:opacity-0 transition-all"></div>
                         </div>
                         <div className="font-bold p-2 text-violet-700 ">
@@ -82,7 +106,19 @@ export function Clinics() {
                 <div className="bg-white shadow-sm rounded h-56 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/zhava.jpg'} objectFit="cover" fill />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <Image
+                                    alt="clinic-dr-zosha"
+                                    src={'/assets/zhava.jpg'}
+                                    sizes="100vw"
+                                    width={261}
+                                    height={144}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto'
+                                    }}
+                                />
+                            </div>
                             <div className="bg-violet-700 opacity-20 absolute top-0 left-0 w-full h-full hover:opacity-0 transition-all"></div>
                         </div>
                         <div className="font-bold p-2 text-violet-700 ">
@@ -98,7 +134,19 @@ export function Clinics() {
                 <div className="bg-white shadow-sm rounded h-56 text-center overflow-hidden p-2">
                     <Link className="flex items-center flex-col hover:text-violet-800 transition-all" href="/">
                         <div className="relative h-36 w-full rounded overflow-hidden">
-                            <Image src={'/assets/javaneh.png'} objectFit="cover" fill />
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <Image
+                                    alt="clinic-dr-zosha"
+                                    src={'/assets/javaneh.png'}
+                                    sizes="100vw"
+                                    width={261}
+                                    height={144}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto'
+                                    }}
+                                />
+                            </div>
                             <div className="bg-violet-700 opacity-20 absolute top-0 left-0 w-full h-full hover:opacity-0 transition-all"></div>
                         </div>
                         <div className="font-bold p-2 text-violet-700 ">

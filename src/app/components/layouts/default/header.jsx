@@ -35,7 +35,7 @@ export function HeaderDefault() {
                     <div>
                         <Link href="/" className="flex items-center">
                             <Image src={'/logo.png'} width={40} height={40} alt="Logo DRZOSHA" />
-                            <div className="mr-2 text-sm font-bold+">دکتر زوشا</div>
+                            <div className="mr-2 text-lg font-bold">دکتر زوشا</div>
                         </Link>
                     </div>
                     <div className="flex items-center justify-center">
