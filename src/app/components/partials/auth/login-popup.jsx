@@ -25,7 +25,7 @@ export function LoginPopup() {
         if (fetchedRef.current) return;
         fetchedRef.current = true;
         const token = getCookie("authToken");
-        setCookie("authToken", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InBhdGllbnQiLCJleHAiOjE3NDEyMDExOTQsImlhdCI6MTczODYwOTE5NH0.xl84uBKs4d5EKx6JAhWyZ1QRDCaFamRzF6CtwZSL9f8", { maxAge: (60 * 60 * 24 * 30) });
+        setCookie("authToken", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Niwicm9sZSI6InBhdGllbnQiLCJleHAiOjE3NDE1OTYxMDcsImlhdCI6MTczOTAwNDEwN30.MZRLa_PEtrUmcfyWRyGVqT0iG-vawf1zachJ0-a2il0", { maxAge: (60 * 60 * 24 * 30) });
 
         if (token) {
             AxiosInstance.get('/user', {
