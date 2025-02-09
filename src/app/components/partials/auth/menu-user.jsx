@@ -1,12 +1,19 @@
+"use client";
+
 import { turnStore } from "@/app/store/turnHandleStore";
 import { ProfileIcon } from "@/app/utils/icons/profile";
 import { useState, useEffect, useRef } from "react";
 import { setCookie } from "cookies-next";
+import { LogoutIcon } from "@/app/utils/icons/logout";
+import Link from "next/link";
+import { ProfileOutlineIcon } from "@/app/utils/icons/profile-outline";
+import { useRouter } from "next/navigation";
 
 export default function MenuUser({ user }) {
-    const { delUser } = turnStore()
+    const { delUser } = turnStore();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const router = useRouter();
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -24,7 +31,8 @@ export default function MenuUser({ user }) {
     const signOut = () => {
         setCookie("authToken", "", { maxAge: -1 });
         delUser();
-    }
+        router.push('/');
+    };
 
     return (
         <div className="relative inline-flex" ref={dropdownRef}>
@@ -51,9 +59,14 @@ export default function MenuUser({ user }) {
             </button>
 
             {isOpen && (
-                <div className="absolute top-10 mt-2 min-w-36 bg-white shadow-md rounded-lg p-1 space-y-1">
-                    <button onClick={() => signOut()} className="block py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100">
-                        خروج
+                <div className="absolute top-10 mt-2 min-w-40 bg-white shadow-md rounded-lg p-1 space-y-1">
+                    <Link onClick={() => setIsOpen(!isOpen)} href={"/profile"} className="flex w-full py-2 px-3 rounded-lg text-gray-800 hover:bg-gray-100 items-center">
+                        <ProfileOutlineIcon />
+                        <div className="mx-1 text-xs">پروفایل کاربری</div>
+                    </Link>
+                    <button onClick={() => signOut()} className="flex w-full py-2 px-3 rounded-lg text-gray-800 hover:bg-gray-100 items-center">
+                        <LogoutIcon />
+                        <div className="mx-1 text-xs">خروج</div>
                     </button>
                 </div>
             )}

@@ -26,17 +26,31 @@ export function LoginPopup() {
     })
 
     const handleRegister = () => {
-        setData((prevState) => ({ ...prevState, loadingRegister: true }));
-        let formData = new FormData();
-        formData.append('mobile', data.mobile);
-        AxiosInstance.post('/auth/register', formData)
-            .then((res) => {
-                setData((prevState) => ({ ...prevState, idCode: res.data.id, stage: 2, loadingRegister: false }));
-            })
-            .catch(() => {
-                toast.error("خطایی رخ داده است");
-                setData((prevState) => ({ ...prevState, loadingRegister: false }));
-            })
+        var regex = new RegExp(/(09\d{9})/g);
+
+        if (data.mobile) {
+            if (regex.test(data.mobile)) {
+
+                setData((prevState) => ({ ...prevState, loadingRegister: true }));
+                let formData = new FormData();
+                formData.append('mobile', data.mobile);
+                AxiosInstance.post('/auth/register', formData)
+                    .then((res) => {
+                        setData((prevState) => ({ ...prevState, idCode: res.data.id, stage: 2, loadingRegister: false }));
+                    })
+                    .catch(() => {
+                        toast.error("خطایی رخ داده است");
+                        setData((prevState) => ({ ...prevState, loadingRegister: false }));
+                    })
+
+            } else {
+                toast.error('فرمت شماره موبایل صحیح نیست');
+            }
+
+
+        } else {
+            toast.error('لطفا شماره موبایل را وارد کنید');
+        }
     }
 
     const handleSend = () => {
