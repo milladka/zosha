@@ -141,8 +141,8 @@ export default function ProfilePage() {
 
     if (data.firstLoading) {
         return <div className="container mx-auto p-2">
-            <div className="px-52 pt-10 pb-14">
-                <div className="bg-white p-8 rounded-lg shadow-lg flex justify-center items-center min-h-96">
+            <div className="p-2 md:px-48 pt-2 md:pt-10 pb-14">
+                <div className="bg-white p-4 rounded-lg shadow-lg flex justify-center items-center min-h-96">
                     <LoadingIcon width={'w-12'} />
                 </div>
             </div>
