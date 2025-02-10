@@ -62,10 +62,12 @@ export function LoginPopup() {
 
     const handleSend = () => {
         setData((prevState) => ({ ...prevState, loadingCode: true }));
+        let mobile = toEnglishDigits(data.mobile);
+        let code = toEnglishDigits(data.code);
         let formData = new FormData();
         formData.append('id', data.idCode);
-        formData.append('otp', data.code);
-        formData.append('mobile', data.mobile);
+        formData.append('otp', code);
+        formData.append('mobile', mobile);
         AxiosInstance.post('/auth/login', formData)
             .then(res => {
                 if (!res.data.error) {
