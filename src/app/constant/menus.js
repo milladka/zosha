@@ -21,6 +21,6 @@ export const Menus = [
     },
     {
         text: 'مجله سلامت',
-        url: '/'
+        url: '/profile'
     },
 ]

@@ -10,7 +10,7 @@ import { ProfileOutlineIcon } from "@/app/utils/icons/profile-outline";
 import { useRouter } from "next/navigation";
 
 export default function MenuUser({ user }) {
-    const { delUser } = turnStore();
+    const { delUser, delToken } = turnStore();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
     const router = useRouter();
@@ -31,6 +31,7 @@ export default function MenuUser({ user }) {
     const signOut = () => {
         setCookie("authToken", "", { maxAge: -1 });
         delUser();
+        delToken();
         router.push('/');
     };
 

@@ -9,10 +9,11 @@ import AxiosInstance from "@/app/config/axiosInstance";
 import { LoadingIcon } from "@/app/utils/icons/loading";
 import { turnStore } from "@/app/store/turnHandleStore";
 import MenuUser from "./menu-user";
+import { Loading } from "@/app/constant/loading";
 
 export function LoginPopup() {
     const fetchedRef = useRef(false);
-    const { user, logined, setUser } = turnStore();
+    const { user, logined, setUser, setToken, delToken } = turnStore();
 
     const [data, setData] = useState({
         loading: true,
@@ -25,15 +26,21 @@ export function LoginPopup() {
         loginOpen: false
     })
 
+    const toEnglishDigits = (str) => {
+        return str.replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+    };
+
     const handleRegister = () => {
-        var regex = new RegExp(/(09\d{9})/g);
+        const iranianMobileRegex = /^(09[0-9]{9})$/;
 
         if (data.mobile) {
-            if (regex.test(data.mobile)) {
+            let mobile = toEnglishDigits(data.mobile);
+
+            if (iranianMobileRegex.test(mobile)) {
 
                 setData((prevState) => ({ ...prevState, loadingRegister: true }));
                 let formData = new FormData();
-                formData.append('mobile', data.mobile);
+                formData.append('mobile', mobile);
                 AxiosInstance.post('/auth/register', formData)
                     .then((res) => {
                         setData((prevState) => ({ ...prevState, idCode: res.data.id, stage: 2, loadingRegister: false }));
@@ -64,7 +71,8 @@ export function LoginPopup() {
                 if (!res.data.error) {
                     toast.success("با موفقیت وارد شدید");
                     setCookie("authToken", res.data.token, { maxAge: (60 * 60 * 24 * 30) });
-                    setData((prevState) => ({ ...prevState, loadingCode: false, loginOpen: false, loading: true }));
+                    setToken(res.data.token);
+                    setData((prevState) => ({ ...prevState, loadingCode: false, loginOpen: false, stage: 1, code: '', mobile: '', idCode: '', loading: true }));
                     AxiosInstance.get('/user', {
                         headers: { Authorization: `Bearer ${res.data.token}` }
                     })
@@ -75,7 +83,8 @@ export function LoginPopup() {
                         .catch(error => {
                             if (error.response && error.response.status == 401) {
                                 setCookie("authToken", "", { maxAge: -1 });
-                                setData((prevState) => ({ ...prevState, loading: false }))
+                                delToken();
+                                setData((prevState) => ({ ...prevState, loading: false }));
                             }
                         })
                 } else {
@@ -93,6 +102,7 @@ export function LoginPopup() {
         if (fetchedRef.current) return;
         fetchedRef.current = true;
         const token = getCookie("authToken");
+        setToken(token);
         if (token) {
             AxiosInstance.get('/user', {
                 headers: { Authorization: `Bearer ${token}` }
@@ -104,6 +114,7 @@ export function LoginPopup() {
                 .catch(error => {
                     if (error.response && error.response.status == 401) {
                         setCookie("authToken", "", { maxAge: -1 });
+                        delToken();
                         setData((prevState) => ({ ...prevState, loading: false }))
                     }
                 })
@@ -149,8 +160,13 @@ export function LoginPopup() {
                                         </div>
                                         <input onChange={(e) => setData((prevState) => ({ ...prevState, mobile: e.target.value }))} value={data.mobile} dir="ltr" type="text" className="w-full block outline-none border-2 border-slate-300 p-2 rounded text-left focus:border-violet-500" placeholder="09123456789" />
                                         <div className="mt-2">
-                                            <button disabled={data.loadingRegister} onClick={() => handleRegister()} href="/" className="block text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
-                                                ورود / ثبت نام
+                                            <button disabled={data.loadingRegister} onClick={() => handleRegister()} href="/" className="flex items-center justify-center text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
+                                                {
+                                                    data.loadingRegister ?
+                                                        <Loading />
+                                                        :
+                                                        <span>ورود / ثبت نام</span>
+                                                }
                                             </button>
                                         </div>
                                         <div className="mt-3 text-slate-400 text-center font-light text-xs">دسترسی سریع و راحت به پزشکان</div>
@@ -165,10 +181,15 @@ export function LoginPopup() {
                                         <div className="mb-2 text-sm text-slate-500">
                                             کد تایید
                                         </div>
-                                        <input onChange={(e) => setData((prevState) => ({ ...prevState, code: e.target.value }))} value={data.code} dir="ltr" type="text" className="w-full block outline-none border-2 border-slate-300 p-2 rounded text-left focus:border-violet-500" placeholder="" />
+                                        <input onChange={(e) => setData((prevState) => ({ ...prevState, code: e.target.value }))} value={data.code} dir="ltr" type="text" className="text-center tracking-widest w-full block outline-none border-2 border-slate-300 p-2 rounded focus:border-violet-500" placeholder="" />
                                         <div className="mt-2">
-                                            <button disabled={data.loadingCode} onClick={() => handleSend()} className="block text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
-                                                تایید کد
+                                            <button disabled={data.loadingCode} onClick={() => handleSend()} className="flex items-center justify-center text-center w-full py-3 rounded bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
+                                                {
+                                                    data.loadingCode ?
+                                                        <Loading />
+                                                        :
+                                                        <span>تایید کد</span>
+                                                }
                                             </button>
                                         </div>
                                         <div className="mt-3 text-slate-400 text-center font-light text-xs">دسترسی سریع و راحت به پزشکان</div>
