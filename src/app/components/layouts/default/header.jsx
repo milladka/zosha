@@ -5,7 +5,7 @@ import { LoginPopup } from "../../partials/auth/login-popup";
 
 export function HeaderDefault() {
     return (
-        <header className="bg-white shadow-lg w-full py-2 shadow-slate-200 fixed z-50">
+        <header className="bg-white shadow-md w-full py-2 fixed z-50">
             <div className="container mx-auto p-2">
                 <div className="hidden md:flex items-center justify-between">
 

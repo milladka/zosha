@@ -9,7 +9,7 @@ import { TopSection } from "./components/partials/home/topsection";
 export default function Home() {
   return (
     <>
-      <div className="min-h-[calc(100vh-140px)] lg:min-h-[500px] bg-center bg-no-repeat bg-cover flex items-center flex-col justify-center relative mx-auto p-2 bg-[url(/assets/bg-top-min.jpg)]">
+      <div className="min-h-[calc(100vh-180px)] lg:min-h-[500px] bg-center bg-no-repeat bg-cover flex items-center flex-col justify-center relative mx-auto p-2 bg-[url(/assets/bg-top-min.jpg)]">
         <div className="absolute top-0 left-0 w-full h-full content-[''] bg-violet-100 opacity-50"></div>
         <TopSection />
         <SearchBox />
@@ -19,7 +19,7 @@ export default function Home() {
           تلاش ما دسترسی سریعتر و آسان تر شما به خدمات پزشکی است
         </span>
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 lg:px-0">
         <FastAccess />
         <FastCategories />
         <PopularTakhasos />

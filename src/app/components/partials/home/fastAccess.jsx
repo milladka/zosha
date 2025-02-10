@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export function FastAccess() {
     return (
-        <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mt-16">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-5 mt-5 lg:mt-16">
 
             <div className="h-64 bg-violet-300 rounded-xl w-full py-12 px-8 flex flex-col justify-between relative overflow-hidden">
                 <div className="text-violet-950 font-bold text-[1.3rem]">دریافت نوبت حضوری</div>

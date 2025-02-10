@@ -48,7 +48,7 @@ const DynamicSelect = ({ options, onSelect, label, selectedOption }) => {
                 </svg>
             </div>
             {isOpen && (
-                <div className="absolute w-full mt-2 p-2 bg-white border rounded-lg shadow-lg text-right z-10">
+                <div className="absolute w-full mt-2 p-2 bg-white border rounded-lg shadow-lg text-right z-20">
                     <input
                         className="mb-2 border text-sm p-1 rounded w-full text-right outline-none"
                         placeholder="جستجو..."

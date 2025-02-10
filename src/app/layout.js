@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
         <main className='bg-[#f4faff] min-h-screen'>
           <HeaderDefault />
           <div className='pt-20'>
-            {children}
+              {children}
             <Footer />
             <ToastContainer />
           </div>

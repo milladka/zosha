@@ -61,11 +61,11 @@ export default function MenuUser({ user }) {
 
             {isOpen && (
                 <div className="absolute top-10 mt-2 min-w-40 bg-white shadow-md rounded-lg p-1 space-y-1">
-                    <Link onClick={() => setIsOpen(!isOpen)} href={"/profile"} className="flex w-full py-2 px-3 rounded-lg text-gray-800 hover:bg-gray-100 items-center">
+                    <Link onClick={() => setIsOpen(!isOpen)} href={"/profile"} className="flex w-full p-3 rounded-lg text-gray-800 hover:bg-gray-100 items-center">
                         <ProfileOutlineIcon />
                         <div className="mx-1 text-xs">پروفایل کاربری</div>
                     </Link>
-                    <button onClick={() => signOut()} className="flex w-full py-2 px-3 rounded-lg text-gray-800 hover:bg-gray-100 items-center">
+                    <button onClick={() => signOut()} className="flex w-full p-3 rounded-lg text-gray-800 hover:bg-gray-100 items-center">
                         <LogoutIcon />
                         <div className="mx-1 text-xs">خروج</div>
                     </button>

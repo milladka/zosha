@@ -7,8 +7,7 @@ import Link from "next/link";
 
 export function Footer() {
     return (
-        <footer className="mt-5 bg-violet-900 min-h-80 w-full relative">
-            <div className="absolute w-full h-full top-0 left-0 bg-slate-900 opacity-50 z-10"></div>
+        <footer className="mt-5 bg-violet-950 min-h-80 w-full relative">
             <div className="relative z-30 ">
 
                 <div className="container mx-auto py-20">
@@ -43,14 +42,14 @@ export function Footer() {
 
                             <div className="mt-8 flex items-center justify-center">
 
-                                <Image 
-      style={{objectFit:"contain"}} className="p-2 rounded shadow bg-violet-500" src={'/assets/licenses/enamad.webp'} alt="enamad dr zosha" width={80} height={80} />
-                                <Image 
-      style={{objectFit:"contain"}} className="p-2 rounded shadow bg-violet-500 mr-2" src={'/assets/licenses/samandehi.webp'} alt="enamad dr zosha" width={80} height={80} />
-                                <Image 
-      style={{objectFit:"contain"}} className="p-2 rounded shadow bg-violet-500 mr-2" src={'/assets/licenses/virtual.webp'} alt="enamad dr zosha" width={80} height={80} />
-                                <Image 
-      style={{objectFit:"contain"}} className="p-2 rounded shadow bg-violet-500 mr-2" src={'/assets/licenses/organization.webp'} alt="enamad dr zosha" width={80} height={80} />
+                                <Image
+                                    style={{ objectFit: "contain" }} className="p-2 rounded shadow bg-violet-500" src={'/assets/licenses/enamad.webp'} alt="enamad dr zosha" width={80} height={80} />
+                                <Image
+                                    style={{ objectFit: "contain" }} className="p-2 rounded shadow bg-violet-500 mr-2" src={'/assets/licenses/samandehi.webp'} alt="enamad dr zosha" width={80} height={80} />
+                                <Image
+                                    style={{ objectFit: "contain" }} className="p-2 rounded shadow bg-violet-500 mr-2" src={'/assets/licenses/virtual.webp'} alt="enamad dr zosha" width={80} height={80} />
+                                <Image
+                                    style={{ objectFit: "contain" }} className="p-2 rounded shadow bg-violet-500 mr-2" src={'/assets/licenses/organization.webp'} alt="enamad dr zosha" width={80} height={80} />
 
                             </div>
 
@@ -73,8 +72,8 @@ export function Footer() {
 
                 <div className="container mx-auto">
                     <div className="py-3 bg-violet-900 rounded-t shadow-lg opacity-80">
-                        <div className="text-white text-xs leading-6 text-center">
-                            تمامی حقوق مادی و معنوی متعلق به دکتر زوشا (شرکت آینده اندیشان به آفرید) می باشد                        </div>
+                        <div className="text-white text-[10px] lg:text-xs leading-6 text-center">
+                            تمامی حقوق مادی و معنوی متعلق به دکتر زوشا (شرکت آینده اندیشان به آفرید) می باشد</div>
                     </div>
                 </div>
 
