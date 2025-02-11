@@ -39,12 +39,14 @@ export default function MenuUser({ user }) {
         <div className="relative inline-flex" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="py-3 px-4 flex items-center gap-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none"
+                className="py-2 px-4 flex items-center gap-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none"
             >
                 <ProfileIcon />
-                {user?.firstname || user?.lastname
-                    ? `${user.firstname} ${user.lastname}`
-                    : user?.phone}
+                <span className="hidden md:block">
+                    {user?.firstname || user?.lastname
+                        ? `${user.firstname} ${user.lastname}`
+                        : user?.phone}
+                </span>
                 <svg
                     className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
                     xmlns="http://www.w3.org/2000/svg"

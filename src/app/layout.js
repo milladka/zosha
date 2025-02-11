@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
       <body className={`${iransans.variable} font-sans`}>
         <main className='bg-[#f4faff] flex flex-col min-h-screen'>
           <HeaderDefault />
-          <div className='pt-20 flex-grow
+          <div className='pt-16 flex-grow
           '>
             {children}
           </div>

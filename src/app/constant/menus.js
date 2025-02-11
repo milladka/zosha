@@ -23,4 +23,9 @@ export const Menus = [
         text: 'مجله سلامت',
         url: '/profile'
     },
+    {
+        text: 'ورود پزشکان',
+        url: '/doctors/request'
+    },
+
 ]
