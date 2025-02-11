@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const DynamicSelect = ({ options, onSelect, label, selectedOption }) => {
+const DynamicSelect = ({ options, onSelect, label, selectedOption, error = false }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState(selectedOption || "");
@@ -37,7 +37,7 @@ const DynamicSelect = ({ options, onSelect, label, selectedOption }) => {
     return (
         <div className="relative w-full text-right" ref={dropdownRef}>
             <div
-                className="border rounded-md p-2 flex justify-between items-center cursor-pointer bg-white"
+                className={`${error && 'border-red-500'} border rounded-md p-2 flex justify-between items-center cursor-pointer bg-white`}
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="font-light text-sm text-slate-600">
@@ -48,7 +48,7 @@ const DynamicSelect = ({ options, onSelect, label, selectedOption }) => {
                 </svg>
             </div>
             {isOpen && (
-                <div className="absolute w-full mt-2 p-2 bg-white border rounded-lg shadow-lg text-right z-20">
+                <div className="absolute w-full mt-2 p-2 bg-white border rounded-lg shadow-lg text-right z-50">
                     <input
                         className="mb-2 border text-sm p-1 rounded w-full text-right outline-none"
                         placeholder="جستجو..."

@@ -100,8 +100,6 @@ export default function ProfilePage() {
         if (!data.gender) errors.gender = "جنسیت را انتخاب کنید.";
         if (!data.city_id) errors.city_id = "شهر را انتخاب کنید.";
 
-        console.log("Validation Errors:", errors);
-
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
@@ -153,7 +151,7 @@ export default function ProfilePage() {
         <div className="container mx-auto p-2">
             <div className="p-2 md:px-48 pt-2 md:pt-10 pb-14">
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         {[
                             { label: "نام", name: "firstname" },
                             { label: "نام خانوادگی", name: "lastname" },

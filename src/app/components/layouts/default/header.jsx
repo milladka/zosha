@@ -24,7 +24,7 @@ export function HeaderDefault() {
                             }
                         </div>
                         <div className="flex items-center justify-center">
-                            {/* <Link className="font-bold mx-3 text-xs text-violet-700 hover:text-violet-900 transition-all" href={'/'}>ورود پزشکان</Link> */}
+                            <Link className="mx-3 text-xs text-slate-700 hover:text-slate-900 transition-all" href={'/doctors/request'}>ورود پزشکان</Link>
                             <LoginPopup />
                         </div>
                     </div>
@@ -39,7 +39,7 @@ export function HeaderDefault() {
                         </Link>
                     </div>
                     <div className="flex items-center justify-center">
-                        {/* <Link className="font-bold mx-3 text-xs text-violet-700 hover:text-violet-900 transition-all" href={'/'}>ورود پزشکان</Link> */}
+                        <Link className="mx-3 text-xs text-slate-700 hover:text-slate-900 transition-all" href={'/doctors/request'}>ورود پزشکان</Link>
                         <LoginPopup />
                     </div>
 
