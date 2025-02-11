@@ -22,11 +22,11 @@ export function ModalCity() {
                                 <button onClick={() => setModalCity()}><CloseIcon /></button>
                                 <span className="mr-3 font-bold">انتخاب شهر</span>
                             </div>
-                            <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700" />
+                            <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700" />
                             <div className="py-1">
                                 <input className="w-full p-2 text-sm outline-none" placeholder="جستجو در شهر‌ها ..." value={search} onChange={e => setsearch(e.target.value)} />
                             </div>
-                            <hr class="h-px bg-violet-300 border-0 dark:bg-gray-700 shadow" />
+                            <hr className="h-px bg-violet-300 border-0 dark:bg-gray-700 shadow" />
 
                             <div className="w-full h-80 overflow-y-scroll">
                                 {

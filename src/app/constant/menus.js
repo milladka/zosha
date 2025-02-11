@@ -17,7 +17,7 @@ export const Menus = [
     },
     {
         text: 'تخصص‌ها',
-        url: '/search'
+        url: '/specialties'
     },
     {
         text: 'مجله سلامت',

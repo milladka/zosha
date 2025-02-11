@@ -39,7 +39,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa-IR" dir="rtl">
+    <html lang="fa-IR" dir="rtl" className='scroll-smooth'>
       <body className={`${iransans.variable} font-sans`}>
         <main className='bg-[#f4faff] min-h-screen'>
           <HeaderDefault />

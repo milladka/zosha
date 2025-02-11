@@ -1,6 +1,7 @@
 import axios from "axios";
 import { setCookie } from "cookies-next";
 import { toast } from "react-toastify";
+import ERRORS from "@/app/constant/errors.json";
 // process.env.BASE_URL
 const AxiosInstance = axios.create({
     baseURL: 'https://keyhantex.ir/drzosha'
@@ -11,12 +12,17 @@ AxiosInstance.interceptors.response.use(
         if (error.response && error.response.status == 401) {
             setCookie("authToken", "", { maxAge: -1 });
         } else {
-            if (error.response.status == 400) {
-                toast.error('خطایی در ثبت رخ داده است')
+            if (error.response && error.response.status == 400) {
+                toast.error('درخواست شما قابل قبول نیست')
+            }
+            if (error?.response?.data?.message) {
+                var error = ERRORS.find(item => item.key == error.response.data.message);
+                if (error) {
+                    toast.error(error?.message)
+                }
             }
         }
 
-        // whatever you want to do with the error
         return Promise.reject(error);
     });
 
