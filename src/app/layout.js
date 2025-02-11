@@ -41,13 +41,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa-IR" dir="rtl" className='scroll-smooth'>
       <body className={`${iransans.variable} font-sans`}>
-        <main className='bg-[#f4faff] min-h-screen'>
+        <main className='bg-[#f4faff] flex flex-col min-h-screen'>
           <HeaderDefault />
-          <div className='pt-20'>
-              {children}
-            <Footer />
-            <ToastContainer />
+          <div className='pt-20 flex-grow
+          '>
+            {children}
           </div>
+          <Footer />
+          <ToastContainer />
         </main>
       </body>
     </html>
