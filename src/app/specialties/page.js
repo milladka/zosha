@@ -1,5 +1,12 @@
 import Link from "next/link";
-import AxiosInstance from "../config/axiosInstance"
+import AxiosInstance from "../config/axiosInstance";
+
+export async function generateMetadata() {
+    return {
+        title: "تخصص‌ها",
+        description: "با آشنایی با تخصص‌های دکتر زوشا، بهترین خدمات پزشکی را دریافت کنید. اطلاعات کامل درباره مهارت‌ها، تجربه‌ها و حوزه‌های درمانی تخصصی. ✅💙",
+    };
+}
 
 export default async function Page() {
     let specialties = [];

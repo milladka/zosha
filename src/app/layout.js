@@ -33,7 +33,10 @@ const iransans = localFont({
 
 
 export const metadata = {
-  title: "دکتر زوشا - رزرو نوبت پزشکان و مراکز جراحی زیبایی",
+  title: {
+    default:"دکتر زوشا - رزرو نوبت پزشکان و مراکز جراحی زیبایی",
+    template: "دکتر زوشا | %s",
+  },
   description: "رزرو نوبت پزشکان و مراکز جراحی زیبایی"
 };
 
@@ -43,7 +46,7 @@ export default function RootLayout({ children }) {
       <body className={`${iransans.variable} font-sans`}>
         <main className='bg-[#f4faff] flex flex-col min-h-screen'>
           <HeaderDefault />
-          <div className='pt-16 flex-grow
+          <div className='pt-16 lg:pt-20 flex-grow
           '>
             {children}
           </div>

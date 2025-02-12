@@ -1,5 +1,13 @@
 import { Breadcrumbs } from "../constant/breadcrumbs";
 
+export async function generateMetadata() {
+    return {
+        title: "حریم خصوصی",
+        description: "سیاست‌های حریم خصوصی دکتر زوشا در حفاظت از اطلاعات شخصی بیماران. با اطمینان از امنیت داده‌های خود، خدمات پزشکی را دریافت کنید. 🔒✅📜",
+    };
+}
+
+
 export default function PrivacyPolicy() {
     return (
         <div className="container mx-auto p-2">

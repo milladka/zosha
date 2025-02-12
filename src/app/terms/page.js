@@ -1,5 +1,12 @@
 import { Breadcrumbs } from "../constant/breadcrumbs";
 
+export async function generateMetadata() {
+    return {
+        title: "قوانین و مقررات",
+        description: "قوانین و مقررات استفاده از خدمات دکتر زوشا. آگاهی از شرایط و ضوابط برای استفاده بهتر از خدمات پزشکی و نوبت‌گیری آنلاین.",
+    };
+}
+
 export default function Terms() {
     return (
         <div className="container mx-auto p-2">
