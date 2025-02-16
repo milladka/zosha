@@ -1,5 +1,4 @@
 "use client"
-Orde
 import { AppointmentTypes } from "../partials/search/filters/appointment_types";
 import { AvailableSchedule } from "../partials/search/filters/available_schedule";
 import { Gender } from "../partials/search/filters/gender";
