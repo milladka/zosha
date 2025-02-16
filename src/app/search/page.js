@@ -1,4 +1,4 @@
-import Image from "next/image";
+"use client"
 import { Ordering } from "../components/partials/search/filters/Ordering";
 import { AppointmentTypes } from "../components/partials/search/filters/appointment_types";
 import { AvailableSchedule } from "../components/partials/search/filters/available_schedule";
@@ -7,18 +7,46 @@ import { PriceLimit } from "../components/partials/search/filters/price_limit";
 import { Services } from "../components/partials/search/filters/services";
 import { Specialities } from "../components/partials/search/filters/specialities";
 import { LocationIcon } from "../utils/icons/location";
-import { Phone } from "../utils/icons/phone";
 import { StarIcon } from "../utils/icons/star";
 import { SparkleIcon } from "../utils/icons/sparkle";
 import Link from "next/link";
 import { Breadcrumbs } from "../constant/breadcrumbs";
 import { LikeIcon } from "../utils/icons/like";
+import { useEffect, useState } from "react";
+import AxiosInstance from "../config/axiosInstance";
+import { PICTURE_URL } from "../constant";
+import { useSearchParams } from 'next/navigation'
+import { Loading } from "../constant/loading";
+import { LoadingIcon } from "../utils/icons/loading";
 
 export default function Search() {
-    return (
-        <div className="container mx-auto">
+    const searchParams = useSearchParams();
 
-            <div className="my-2 md:my-5">
+    const [data, setData] = useState({
+        loading: true,
+        doctors: []
+    })
+
+    useEffect(() => {
+        const city = searchParams.get('city');
+        const query = searchParams.get('query');
+        const queryString = [
+            city ? `city=${city}` : '',
+            query ? `query=${query}` : ''
+        ].filter(Boolean).join('&');
+
+        AxiosInstance.get(`/front/get_doctors${queryString ? '?' + queryString : ''}`)
+            .then(res => {
+                if (!res.data.error) {
+                    setData((prev) => ({ ...prev, doctors: res.data.data, loading: false }))
+                }
+            })
+    }, [])
+
+    return (
+        <div className="container mx-auto p-2">
+
+            <div className="my-5 md:my-5">
                 <Breadcrumbs pages={[{ title: 'رزرو نوبت و مشاوره' }]} />
             </div>
 
@@ -49,95 +77,77 @@ export default function Search() {
                 <div className="col-span-12 md:col-span-9">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                        <div className="bg-white shadow rounded-xl p-3">
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center justify-center">
-                                    <div className="flex items-center justify-start">
-                                        <StarIcon />
-                                        <span className="mr-1 mt-1 text-xs font-light">4.5</span>
-                                    </div>
-                                    <div className="flex items-center justify-start mr-2">
-                                        <LikeIcon />
-                                        <span className="mr-1 mt-1 text-xs font-light">97% پیشنهاد کاربران</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <SparkleIcon />
+                        {
+
+                            data.loading ?
+
+                                <div className="col-span-2 bg-white p-2 text-center flex items-center justify-center">
+                                    <LoadingIcon width={'w-8'} />
                                 </div>
 
-                            </div>
-                            <div className="flex items-center justify-center w-full p-2">
-                                <Image className="rounded-full mt-2" src="/assets/doctors/2.webp" width={60} height={60} />
-                            </div>
-                            <div className="text-center w-full font-bold mt-2">
-                                نرگس صارمی
-                            </div>
-                            <div className="text-center w-full text-xs font-light mt-2 text-slate-500">
-                                دکترای حرفه ای دندانپزشکی
-                            </div>
-                            <div className="flex items-center justify-center mt-2">
-                                <LocationIcon small />
-                                <span className="mr-1 text-xs ">تهران</span>
-                            </div>
+                                :
 
-                            <div className="flex items-center justify-center mt-3 bg-slate-100 rounded-full w-full p-2">
-                                <div className="text-xs mx-2 text-slate-600 font-light">نوبت حضوری</div>
-                                <div className="text-xs mx-2 text-slate-600 font-light">مشاوره تلفنی</div>
-                                <div className="text-xs mx-2 text-slate-300 font-light">مشاوره متنی</div>
-                            </div>
+                                data?.doctors && data?.doctors.length > 0 ? data?.doctors.map((item, index) => {
+                                    return (
+                                        <div key={index} className="bg-white shadow rounded-xl p-3">
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center justify-center">
+                                                    <div className="flex items-center justify-start">
+                                                        <StarIcon />
+                                                        <span className="mr-1 mt-1 text-xs font-light">4.5</span>
+                                                    </div>
+                                                    <div className="flex items-center justify-start mr-2">
+                                                        <LikeIcon />
+                                                        <span className="mr-1 mt-1 text-xs font-light">97% پیشنهاد کاربران</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <SparkleIcon />
+                                                </div>
 
-                            <div className="mt-2">
-                                <Link href="/" className="block text-center w-full py-2 rounded-lg bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
-                                    رزرو نوبت
-                                </Link>
-                            </div>
+                                            </div>
 
-                        </div>
 
-                        <div className="bg-white shadow rounded-xl p-3">
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center justify-center">
-                                    <div className="flex items-center justify-start">
-                                        <StarIcon />
-                                        <span className="mr-1 mt-1 text-xs font-light">4.5</span>
-                                    </div>
-                                    <div className="flex items-center justify-start mr-2">
-                                        <LikeIcon />
-                                        <span className="mr-1 mt-1 text-xs font-light">100% پیشنهاد کاربران</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    {/* <SparkleIcon /> */}
-                                </div>
+                                            <div className="flex flex-col items-center w-full my-3">
+                                                <label className="relative w-24 h-24 rounded-full overflow-hidden">
+                                                    <img src={PICTURE_URL + item.profile_image} alt="Doctor Profile" className="w-full h-full object-cover" />
+                                                </label>
+                                            </div>
 
-                            </div>
-                            <div className="flex items-center justify-center w-full p-2">
-                                <Image className="rounded-full mt-2" src="/assets/doctors/1.webp" width={60} height={60} />
-                            </div>
-                            <div className="text-center w-full font-bold mt-2">
-                                دکتر نسیبه حسنی جبلی
-                            </div>
-                            <div className="text-center w-full text-xs font-light mt-2 text-slate-500">
-                                تخصص بیماری‌های پوست (درماتولوژی)
-                            </div>
-                            <div className="flex items-center justify-center mt-2">
-                                <LocationIcon small />
-                                <span className="mr-1 text-xs ">تهران</span>
-                            </div>
+                                            <div className="text-center w-full font-bold mt-2">
+                                                {item.first_name} {item.last_name}
+                                            </div>
+                                            <div className="text-center w-full text-xs font-light mt-2 text-slate-500">
+                                                {item.bio}
+                                            </div>
+                                            <div className="flex items-center justify-center mt-2">
+                                                <LocationIcon small />
+                                                <span className="mr-1 text-xs">
+                                                    {item.city}
+                                                </span>
+                                            </div>
 
-                            <div className="flex items-center justify-center mt-3 bg-slate-100 rounded-full w-full p-2">
-                                <div className="text-xs mx-2 text-slate-600 font-light">نوبت حضوری</div>
-                                <div className="text-xs mx-2 text-slate-600 font-light">مشاوره تلفنی</div>
-                                <div className="text-xs mx-2 text-slate-300 font-light">مشاوره متنی</div>
-                            </div>
+                                            <div className="flex items-center justify-center mt-3 bg-slate-100 rounded-full w-full p-2">
+                                                <div className="text-xs mx-2 text-slate-600 font-light">نوبت حضوری</div>
+                                            </div>
 
-                            <div className="mt-2">
-                                <Link href="/dr/milad" className="block text-center w-full py-2 rounded-lg bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
-                                    رزرو نوبت
-                                </Link>
-                            </div>
+                                            <div className="mt-2">
+                                                <Link href={`/dr/${item.slug}`} className="block text-center w-full py-2 rounded-lg bg-violet-600 hover:bg-violet-900 transition-all duration-500 ease-in-out text-white">
+                                                    رزرو نوبت
+                                                </Link>
+                                            </div>
 
-                        </div>
+                                        </div>
+                                    )
+                                })
+                                    :
+                                    (
+                                        <div className="col-span-2 text-center p-3 text-xs bg-white rounded shadow">
+                                            پزشکی برای جستجوی شما پیدا نشد
+                                        </div>
+                                    )
+                        }
+
                     </div>
 
                 </div>

@@ -1,14 +1,6 @@
 export const Menus = [
     {
-        text: 'نوبت‌دهی',
-        url: '/search'
-    },
-    {
-        text: 'مشاوره تلفنی',
-        url: '/search'
-    },
-    {
-        text: 'مشاوره متنی',
+        text: 'نوبت‌دهی حضوری',
         url: '/search'
     },
     {

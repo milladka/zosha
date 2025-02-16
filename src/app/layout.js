@@ -34,10 +34,13 @@ const iransans = localFont({
 
 export const metadata = {
   title: {
-    default:"دکتر زوشا - رزرو نوبت پزشکان و مراکز جراحی زیبایی",
+    default: "دکتر زوشا - رزرو نوبت پزشکان و مراکز جراحی زیبایی",
     template: "دکتر زوشا | %s",
   },
-  description: "رزرو نوبت پزشکان و مراکز جراحی زیبایی"
+  description: "رزرو نوبت پزشکان و مراکز جراحی زیبایی",
+  icons: {
+    icon: "/logo.png",
+  }
 };
 
 export default function RootLayout({ children }) {

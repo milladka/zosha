@@ -1,3 +1,4 @@
+'use client'
 import { turnStore } from "@/app/store/turnHandleStore";
 import moment from 'moment-jalaali';
 import 'moment/locale/fa';

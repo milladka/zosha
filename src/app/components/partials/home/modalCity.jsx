@@ -1,16 +1,23 @@
 import { cityStore } from "@/app/store/cityHandleStore";
 import { CloseIcon } from "@/app/utils/icons/close";
-import Provice from '@/app/constant/province.json';
 import { LocationIcon } from "@/app/utils/icons/location";
 import { useEffect, useState } from "react";
+import AxiosInstance from "@/app/config/axiosInstance";
 
 export function ModalCity() {
-    const { modalCity, setModalCity, setCity } = cityStore();
+    const { modalCity, setModalCity, setCity, setCities, cities } = cityStore();
     const [search, setsearch] = useState("");
 
     useEffect(() => {
         setsearch('')
-    }, [modalCity])
+    }, [modalCity]);
+
+    useEffect(() => {
+        AxiosInstance.get('/utility/cities')
+            .then((res) => {
+                setCities(res.data.data);
+            })
+    },[])
 
     return (
         <>
@@ -30,15 +37,15 @@ export function ModalCity() {
 
                             <div className="w-full h-80 overflow-y-scroll">
                                 {
-                                    Provice.filter((item) => {
+                                    cities.length > 0 && cities.filter((item) => {
                                         return (
-                                            item.title.toLowerCase().includes(search.toLowerCase())
+                                            item.label.toLowerCase().includes(search.toLowerCase())
                                         )
                                     }).map(item => {
                                         return (
-                                            <div onClick={() => { setCity(item.id), setModalCity(); }} key={item.id} className="border-b flex items-center p-3 cursor-pointer hover:bg-slate-100">
+                                            <div onClick={() => { setCity(item.value), setModalCity(); }} key={item.value} className="border-b flex items-center p-3 cursor-pointer hover:bg-slate-100">
                                                 <LocationIcon small />
-                                                <span className="mr-2 text-gray-500">{item.title}</span>
+                                                <span className="mr-2 text-gray-500">{item.label}</span>
                                             </div>
                                         )
                                     })

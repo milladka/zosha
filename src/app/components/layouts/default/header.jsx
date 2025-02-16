@@ -30,7 +30,6 @@ export function HeaderDefault() {
                         </div>
                     </div>
                 </div>
-                {/* Mobile Menu */}
                 <div className="flex md:hidden items-center justify-between">
                     <div>
                         <Link href="/" className="flex items-center">
