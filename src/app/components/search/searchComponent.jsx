@@ -1,22 +1,24 @@
 "use client"
-import { Ordering } from "../components/partials/search/filters/Ordering";
-import { AppointmentTypes } from "../components/partials/search/filters/appointment_types";
-import { AvailableSchedule } from "../components/partials/search/filters/available_schedule";
-import { Gender } from "../components/partials/search/filters/gender";
-import { PriceLimit } from "../components/partials/search/filters/price_limit";
-import { Services } from "../components/partials/search/filters/services";
-import { Specialities } from "../components/partials/search/filters/specialities";
-import { LocationIcon } from "../utils/icons/location";
-import { StarIcon } from "../utils/icons/star";
-import { SparkleIcon } from "../utils/icons/sparkle";
+Orde
+import { AppointmentTypes } from "../partials/search/filters/appointment_types";
+import { AvailableSchedule } from "../partials/search/filters/available_schedule";
+import { Gender } from "../partials/search/filters/gender";
+import { PriceLimit } from "../partials/search/filters/price_limit";
+import { Services } from "../partials/search/filters/services";
+import { Specialities } from "../partials/search/filters/specialities";
+import { StarIcon } from "@/app/utils/icons/star";
+import { SparkleIcon } from "@/app/utils/icons/sparkle";
 import Link from "next/link";
-import { Breadcrumbs } from "../constant/breadcrumbs";
-import { LikeIcon } from "../utils/icons/like";
+import { Breadcrumbs } from "@/app/constant/breadcrumbs";
+import { LikeIcon } from "@/app/utils/icons/like";
 import { useEffect, useState } from "react";
-import AxiosInstance from "../config/axiosInstance";
-import { PICTURE_URL } from "../constant";
+import AxiosInstance from "@/app/config/axiosInstance";
+import { PICTURE_URL } from "@/app/constant";
 import { useSearchParams } from 'next/navigation'
-import { LoadingIcon } from "../utils/icons/loading";
+import { LoadingIcon } from "@/app/utils/icons/loading";
+import { Ordering } from "../partials/search/filters/Ordering";
+import { LocationIcon } from "@/app/utils/icons/location";
+
 
 export default function SearchComponent() {
     const searchParams = useSearchParams();
