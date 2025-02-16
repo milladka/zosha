@@ -21,15 +21,18 @@ import { LoadingIcon } from "../utils/icons/loading";
 
 export default function Search() {
     const searchParams = useSearchParams();
-
+    const [city, setCity] = useState('');
+    const [query, setQuery] = useState('');
     const [data, setData] = useState({
         loading: true,
         doctors: []
     })
+    useEffect(() => {
+        setCity(searchParams.get('city') || '');
+        setQuery(searchParams.get('query') || '');
+    }, [searchParams]);
 
     useEffect(() => {
-        const city = searchParams.get('city');
-        const query = searchParams.get('query');
         const queryString = [
             city ? `city=${city}` : '',
             query ? `query=${query}` : ''
@@ -38,10 +41,10 @@ export default function Search() {
         AxiosInstance.get(`/front/get_doctors${queryString ? '?' + queryString : ''}`)
             .then(res => {
                 if (!res.data.error) {
-                    setData((prev) => ({ ...prev, doctors: res.data.data, loading: false }))
+                    setData({ doctors: res.data.data, loading: false });
                 }
-            })
-    }, [])
+            });
+    }, [city, query]);
 
     return (
         <div className="container mx-auto p-2">
