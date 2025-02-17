@@ -3,15 +3,19 @@ import AxiosInstance from "@/app/config/axiosInstance";
 import { PICTURE_URL } from "@/app/constant";
 import { turnStore } from "@/app/store/turnHandleStore";
 import { LoadingIcon } from "@/app/utils/icons/loading";
-import { CircleCheck } from "lucide-react";
+import { ArrowRight, CircleCheck } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import moment from 'moment-jalaali';
+import Link from "next/link";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 moment.locale('fa');
 moment.loadPersian({ dialect: 'persian' });
 
 export default function ReservePage({ params }) {
     const { token } = turnStore();
+    const router = useRouter();
 
     const [data, setData] = useState({
         firstLoading: true,
@@ -25,10 +29,25 @@ export default function ReservePage({ params }) {
         })
             .then(res => {
                 if (!res.data.error) {
+                    console.log(res.data.data)
                     setData((prev) => ({ ...prev, data: res.data.data, firstLoading: false }))
                 }
             })
     }, [params.id])
+
+    const deleteReserve = (reserveId) => {
+        AxiosInstance.postForm('/user/delete_reserve', {
+            reservation_id: reserveId
+        }, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then(res => {
+                if (!res.data.error) {
+                    toast.warning(res.data.message);
+                    router.push('/reservations')
+                }
+            })
+    }
 
     let shamsiDate = (miladiDate) => miladiDate ? moment(miladiDate, "YYYY-MM-DD").format("jYYYY/jMM/jDD") : '';
     let formattedTime = (time) => time ? time.split(":").slice(0, 2).join(":") : '';
@@ -47,6 +66,12 @@ export default function ReservePage({ params }) {
         <div className="container mx-auto p-2">
             <div className="px-2 lg:px-52 pt-5 lg:pt-16 pb-16">
                 <div className="bg-white p-2 lg:p-8 rounded-lg ">
+                    <div className="my-2 text-slate-500 hover:text-slate-700 transition-all">
+                        <Link className="flex gap-2 text-sm" href={'/reservations'}>
+                            <ArrowRight width={20} />
+                            <div>بازگشت به نوبت‌های من</div>
+                        </Link>
+                    </div>
                     <div className="flex flex-col text-green-600 items-center justify-center">
                         <CircleCheck />
                         <div className="text-green-600 text-center mt-2 font-bold">نوبت شما با موفقیت ثبت شد</div>
@@ -56,7 +81,7 @@ export default function ReservePage({ params }) {
                         <div className="flex items-center justify-between flex-col">
 
                             <div className="flex-none ml-2">
-                                <Image className="rounded-full mt-2" src={PICTURE_URL + data.data?.doctorProfile} width={90} height={90} />
+                                <Image alt={data.data?.doctorName + ' ' + data.data?.doctorFamily} className="rounded-full mt-2" src={PICTURE_URL + data.data?.doctorProfile} width={90} height={90} />
                             </div>
 
                             <div className="flex-1 text-center mt-4">
@@ -109,10 +134,13 @@ export default function ReservePage({ params }) {
                             <div>تلفن بیمار</div>
                             <div className="font-bold"> {data.data?.patientPhone}</div>
                         </div>
-                        <div className="mt-5">
-                            <button className="mt-2 w-full py-3 rounded border-red-600 text-center outline-none border text-red-600 text-xs font-bold">لغو نوبت</button>
-                        </div>
-
+                        {
+                            data.data?.is_past == 0 && (
+                                <div className="mt-5">
+                                    <button onClick={() => deleteReserve(data.data?.id)} className="mt-2 w-full py-3 rounded border-red-600 hover:bg-red-600 hover:text-white transition-all text-center outline-none border text-red-600 text-xs font-bold">لغو نوبت</button>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>
