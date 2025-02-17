@@ -5,8 +5,8 @@ import { CheckIcon } from "../utils/icons/check";
 export default function Receipt() {
     return (
         <div className="container mx-auto p-2">
-            <div className="px-52 pt-16 pb-16">
-                <div className="bg-white p-8 rounded-lg ">
+            <div className="px-2 lg:px-52 pt-5 lg:pt-16 pb-16">
+                <div className="bg-white p-2 lg:p-8 rounded-lg ">
                     <div className="flex flex-col items-center justify-center">
                         <CheckIcon />
                         <div className="text-green-600 text-center mt-2 font-bold">نوبت شما با موفقیت ثبت شد</div>

@@ -1,25 +1,17 @@
-import { ModalOfficeAppointment } from "@/app/components/dr/modalOfficeAppointment";
+import { SectionAppointment } from "@/app/components/dr/sectionAppointment";
 import AxiosInstance from "@/app/config/axiosInstance";
 import { PICTURE_URL } from "@/app/constant";
 import { Breadcrumbs } from "@/app/constant/breadcrumbs";
-import { turnStore } from "@/app/store/turnHandleStore";
-import { MessageIconInApp } from "@/app/utils/icons/inApp/message";
-import { PhoneIconInApp } from "@/app/utils/icons/inApp/phone";
-import { ReserveIconInApp } from "@/app/utils/icons/inApp/reserve";
 import { LikeIcon } from "@/app/utils/icons/like";
-import { LocationIcon } from "@/app/utils/icons/location";
 import { ShareIcon } from "@/app/utils/icons/share";
 import { StarIcon } from "@/app/utils/icons/star";
-import { Locate, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import { notFound } from 'next/navigation'
 
 export default async function Docotor({ params }) {
-    //const { modal, setModal } = turnStore();
-    // const [more, setMore] = useState(false);
 
     let doctorData;
-    let more = true;
     await AxiosInstance.get(`/front/get_doctor/${params.slug}`)
         .then(res => {
             if (res.data.error) {
@@ -28,11 +20,8 @@ export default async function Docotor({ params }) {
             doctorData = res.data.data;
         })
 
-    const formattedAmount = (amount) => amount ? amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") : '';
-
     return (
         <>
-            {/* <ModalOfficeAppointment /> */}
             <div className="container mx-auto my-7 p-3">
                 <div className="mb-5">
                     <Breadcrumbs pages={[{ title: 'رزرو نوبت و مشاوره', url: '/search' }, { title: `دکتر ${doctorData?.first_name} ${doctorData?.last_name}` }]} />
@@ -101,9 +90,9 @@ export default async function Docotor({ params }) {
                         </div>
 
                         <div className={`bg-white rounded-lg shadow-sm mt-8 leading-7 text-slate-500 text-sm overflow-hidden`}>
-                            <div className={`p-6  ${more ? 'h-auto' : 'h-80'}`}>
+                            <div className={`p-6 h-auto`}>
+                                <div dangerouslySetInnerHTML={{ __html: doctorData?.content }}></div>
                             </div>
-                            {/* <button onClick={() => { setMore(!more) }} className="w-full text-xs font-bold text-blue-400 bg-white py-3 text-center">{more ? 'مشاهده کمتر' : 'مشاهده بیشتر'}</button> */}
                         </div>
 
                         {/* <div className="bg-white rounded-lg shadow-sm mt-8 p-6">
@@ -157,33 +146,8 @@ export default async function Docotor({ params }) {
                             </div>
                             <div>
 
-                                <div className="border-2 rounded-lg p-2 border-green-300 bg-green-100 bg-opacity-25">
-
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex-none p-1">
-                                            <ReserveIconInApp />
-                                        </div>
-
-                                        <div className="flex-1 p-2">
-
-                                            <div className="flex items-center justify-between">
-                                                <div className="font-bold text-green-600">نوبت حضوری</div>
-                                                <div className="font-bold text-green-600">
-                                                    {formattedAmount(doctorData?.visit_price_in_person)} ریال
-                                                </div>
-                                            </div>
-                                            <div className="mt-3 text-slate-400 text-xs">
-                                                {doctorData?.city} - {doctorData?.address}
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    {/* <button onClick={() => setModal('دکتر نسیبه حسنی جبلی')} className="mt-2 w-full py-3 rounded bg-green-600 text-center outline-none border-none text-white text-xs font-bold">دریافت نوبت حضوری</button> */}
-
-                                </div>
-
-                                <div className="opacity-60 hover:opacity-100 transition-all mt-4 border rounded-lg p-2 border-violet-400 bg-violet-100 bg-opacity-25">
+                                <SectionAppointment data={doctorData} />
+                                {/* <div className="opacity-60 hover:opacity-100 transition-all mt-4 border rounded-lg p-2 border-violet-400 bg-violet-100 bg-opacity-25">
 
                                     <div className="flex items-center justify-between">
 
@@ -207,9 +171,9 @@ export default async function Docotor({ params }) {
                                     <button className="mt-2 w-full py-2 rounded bg-violet-600 text-center outline-none border-none text-white text-xs font-bold">دریافت مشاوره متنی </button>
 
 
-                                </div>
+                                </div> */}
 
-                                <div className="opacity-60 hover:opacity-100 transition-all mt-4 border rounded-lg p-2 border-slate-300 bg-slate-100 bg-opacity-25">
+                                {/* <div className="opacity-60 hover:opacity-100 transition-all mt-4 border rounded-lg p-2 border-slate-300 bg-slate-100 bg-opacity-25">
 
                                     <div className="flex items-center justify-between">
 
@@ -234,7 +198,7 @@ export default async function Docotor({ params }) {
                                     <button className="mt-2 w-full py-2 rounded bg-slate-600 text-center outline-none border-none text-white text-xs font-bold">دریافت مشاوره تلفنی </button>
 
 
-                                </div>
+                                </div> */}
 
                             </div>
 
