@@ -10,7 +10,7 @@ import moment from 'moment-jalaali';
 moment.locale('fa');
 moment.loadPersian({ dialect: 'persian' });
 
-export default function reservePage({ params }) {
+export default function ReservePage({ params }) {
     const { token } = turnStore();
 
     const [data, setData] = useState({
