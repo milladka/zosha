@@ -60,10 +60,10 @@ export function ModalOfficeAppointment() {
                 )
                     .then(res => {
                         if (!res.data.error) {
-
                             toast.success('نوبت شما با موفقیت ثبت شد');
                             router.push('/reservations')
-
+                        }else{
+                            toast.error(res.data.message);
                         }
                     })
             }
