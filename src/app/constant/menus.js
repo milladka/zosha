@@ -5,7 +5,7 @@ export const Menus = [
     },
     {
         text: 'مراکز درمانی',
-        url: '/search'
+        url: '/center'
     },
     {
         text: 'تخصص‌ها',
@@ -13,7 +13,7 @@ export const Menus = [
     },
     {
         text: 'مجله سلامت',
-        url: '/profile'
+        url: '/mag'
     },
     {
         text: 'ورود پزشکان',

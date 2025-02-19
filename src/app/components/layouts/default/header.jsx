@@ -16,7 +16,7 @@ export function HeaderDefault() {
                 <div className="hidden md:flex items-center justify-between">
                     <div>
                         <Link href="/">
-                            <Image src={'/logo.png'} width={60} height={60} alt="logo dr zosha" />
+                            <Image src={'/logo.png'} width={60} height={60} alt="دکتر زوشا" />
                         </Link>
                     </div>
                     <div className="flex-1 hidden md:flex items-center justify-between px-5">
@@ -33,7 +33,7 @@ export function HeaderDefault() {
                 <div className="flex md:hidden items-center justify-between">
                     <div>
                         <Link href="/" className="flex items-center">
-                            <Image src={'/logo.png'} width={40} height={40} alt="Logo DRZOSHA" />
+                            <Image src={'/logo.png'} width={40} height={40} alt="دکتر زوشا" />
                             <div className="mr-2 text-lg font-bold">دکتر زوشا</div>
                         </Link>
                     </div>
