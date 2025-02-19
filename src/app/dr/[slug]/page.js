@@ -91,7 +91,7 @@ export default async function Docotor({ params }) {
 
                         <div className={`bg-white rounded-lg shadow-sm mt-8 leading-7 text-slate-500 text-sm overflow-hidden`}>
                             <div className={`p-6 h-auto`}>
-                                <div dangerouslySetInnerHTML={{ __html: doctorData?.content }}></div>
+                                <div style={{ whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html: doctorData?.content }}></div>
                             </div>
                         </div>
 
