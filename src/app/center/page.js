@@ -37,18 +37,18 @@ export default function CenterPage() {
     ]
     return (
         <>
-            <div className="min-h-[calc(100vh-180px)] lg:min-h-[400px] bg-center bg-no-repeat bg-cover flex items-center flex-col justify-center relative mx-auto p-2 bg-[url(/assets/bg-top-center-min.jpg)]">
+            <div className="min-h-[calc(100vh-500px)] lg:min-h-[400px] bg-center bg-no-repeat bg-cover flex items-center flex-col justify-center relative mx-auto p-2 bg-[url(/assets/bg-top-center-min.jpg)]">
                 <div className="absolute top-0 left-0 w-full h-full content-[''] bg-slate-950 opacity-50"></div>
                 <TopSectionCenter />
             </div>
             <div className="mt-5 container mx-auto p-3 lg:px-10 py-5 lg:py-8">
-                <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                     {
                         centers.map((center, index) => {
                             return (
                                 <Link key={index} href={`/center/group/${center.slug}`} className="flex items-center justify-start flex-col gap-2 shadow-violet-100 border-violet-100 border rounded-xl shadow p-2 bg-white">
                                     <Image src={`/assets/center/${center.image}`} width={200} height={100} alt="دکتر زوشا" />
-                                    <div className="font-extrabold text-md text-violet-800"> {center.name}</div>
+                                    <div className="font-extrabold text-xs lg:text-md text-violet-800"> {center.name}</div>
                                 </Link>
                             )
                         })
