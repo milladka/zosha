@@ -7,17 +7,20 @@ import { ShareIcon } from "@/app/utils/icons/share";
 import { StarIcon } from "@/app/utils/icons/star";
 import { MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from 'next/navigation'
 
 export default async function Docotor({ params }) {
 
     let doctorData;
+    let doctorSpeciatities = [];
     await AxiosInstance.get(`/front/get_doctor/${params.slug}`)
         .then(res => {
             if (res.data.error) {
                 return notFound()
             }
             doctorData = res.data.data;
+            doctorSpeciatities = res.data.specialities;
         })
 
     return (
@@ -26,7 +29,7 @@ export default async function Docotor({ params }) {
                 <div className="mb-5">
                     <Breadcrumbs pages={[{ title: 'رزرو نوبت و مشاوره', url: '/search' }, { title: `دکتر ${doctorData?.first_name} ${doctorData?.last_name}` }]} />
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
                     <div className="col-span-1 lg:col-span-8">
 
@@ -89,7 +92,7 @@ export default async function Docotor({ params }) {
 
                         </div>
 
-                        <div className={`bg-white rounded-lg shadow-sm mt-8 leading-7 text-slate-500 text-sm overflow-hidden`}>
+                        <div className={`bg-white rounded-lg shadow-sm mt-3 lg:mt-5 leading-7 text-slate-500 text-sm overflow-hidden`}>
                             <div className={`p-6 h-auto`}>
                                 <div style={{ whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html: doctorData?.content }}></div>
                             </div>
@@ -199,9 +202,22 @@ export default async function Docotor({ params }) {
 
 
                                 </div> */}
-
                             </div>
+                        </div>
 
+                        <div className="mt-3 lg:mt-5  bg-white rounded shadow-sm p-6">
+                            <div className="">تخصص های دکتر {doctorData?.first_name +' '+ doctorData?.last_name}</div>
+                            <div className="mt-2">
+                                {
+                                    doctorSpeciatities.map(item => {
+                                        return (
+                                            <div className="mb-2" key={item.id}>
+                                                <Link className="w-full text-sm p-1 text-violet-700 hover:text-violet-900 transition-all" href={`/specialty/${item.slug}`}>{item.full_name}</Link>
+                                            </div>
+                                        )
+                                    })                                    
+                                }
+                            </div>
                         </div>
                     </div>
 

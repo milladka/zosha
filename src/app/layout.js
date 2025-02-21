@@ -42,15 +42,14 @@ export const metadata = {
     icon: "/logo.png",
   }
 };
-
+// bg-[#f4faff]
 export default function RootLayout({ children }) {
   return (
     <html lang="fa-IR" dir="rtl" className='scroll-smooth'>
       <body className={`${iransans.variable} font-sans`}>
         <main className='bg-[#f4faff] flex flex-col min-h-screen'>
           <HeaderDefault />
-          <div className='pt-16 lg:pt-20 flex-grow
-          '>
+          <div className='pt-16 lg:pt-20 flex-grow'>
             {children}
           </div>
           <Footer />
