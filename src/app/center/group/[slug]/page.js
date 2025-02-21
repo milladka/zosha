@@ -54,7 +54,8 @@ export default function GroupCenterPage() {
                             detil.length > 0 && detil.map(item => {
                                 if (item?.name) {
                                     return (
-                                        <div key={item.id} className="bg-white p-2 shadow-sm mb-2 rounded-lg">
+                                        <div key={item.id} className="bg-white p-2 shadow-sm mb-2 rounded-lg relative">
+                                            <div className="absolute left-3 top-3 text-xs bg-violet-100 text-violet-600 py-1 px-2 rounded-full">{item?.center == "public" ? 'مرکز عمومی' : 'مرکز خصوصی'}</div>
                                             <div className="flex flex-col items-center lg:items-start lg:flex-row">
                                                 <div className="flex items-center justify-center rounded-full shadow-lg border mb-2 lg:mb-0">
                                                     <div className=" rounded-full w-24 h-24 overflow-hidden flex items-center justify-center ">
