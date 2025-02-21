@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import { Breadcrumbs } from "@/app/constant/breadcrumbs";
 import Image from "next/image";
 import { PICTURE_URL } from "@/app/constant";
-import { CircleX, MapPin, MapPinned, Phone } from "lucide-react";
+import { CircleX, Hospital, MapPin, MapPinned, Phone } from "lucide-react";
 import { Map, Marker } from "pigeon-maps"
 
 export default function GroupCenterPage() {
@@ -59,13 +59,25 @@ export default function GroupCenterPage() {
                                             <div className="flex flex-col items-center lg:items-start lg:flex-row">
                                                 <div className="flex items-center justify-center rounded-full shadow-lg border mb-2 lg:mb-0">
                                                     <div className=" rounded-full w-24 h-24 overflow-hidden flex items-center justify-center ">
-                                                        <Image alt="دکتر زوشا" src={PICTURE_URL + item?.image_id} width={90} height={90} />
+                                                        {
+                                                            item?.image_id
+                                                                ?
+                                                                <Image alt="دکتر زوشا" src={PICTURE_URL + item?.image_id} width={90} height={90} />
+                                                                :
+                                                                <div className="h-32 w-32 rounded-full text-slate-100 flex  items-center justify-center">
+                                                                    <Hospital size={60} strokeWidth={1} />
+                                                                </div>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div className="p-1 flex items-start justify-center flex-col gap-2 w-full">
                                                     <div className="font-bold px-2 text-center lg:text-start w-full text-lg text-slate-800">{item?.name}</div>
                                                     <div className="font-bold text-sm flex items-center justify-center lg:justify-start gap-1 px-2 text-blue-600 w-full"><Phone className="rotate-[250deg] hidden lg:block" width={15} /> {item?.phone} </div>
                                                     <div className="text-slate-500 text-xs lg:text-sm flex items-center gap-1 text-center lg:text-start border rounded-full py-1 px-2 w-full"><MapPin className="hidden lg:block" width={15} /> {item?.city} - {item?.address} </div>
+                                                    <div className="w-full overflow-hidden h-15">
+                                                        <div dangerouslySetInnerHTML={{ __html: item?.description }} style={{ overflow: 'hidden', whiteSpace: 'pre-line', textOverflow: 'ellipsis' }} className="text-xs font-extralight text-gray-500 p-2 leading-5">
+                                                        </div>
+                                                    </div>
                                                     {
                                                         item?.latitude != 0 && item?.longitude != 0 && <div className="py-1 px-2"><button onClick={() => handleMap(item?.latitude, item?.longitude)} className="text-blue-600 flex text-xs items-center gap-1"><MapPinned width={17} />نمایش روی نقشه</button></div>
                                                     }
