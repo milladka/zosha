@@ -47,6 +47,12 @@ export function ModalOfficeAppointment() {
         if (!logined) {
             toast.error('شما باید وارد شوید')
         } else {
+            if(!user?.firstname){
+                toast.error('لطفا پروفایل خود را تکمیل کنید');
+                router.push('/profile')
+                return
+            }
+
             if (user && user?.id && selectTime?.available_time) {
                 AxiosInstance.postForm('/user/appointment_reservation',
                     {
