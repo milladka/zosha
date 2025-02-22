@@ -27,7 +27,7 @@ export function RecentMag() {
                 {
                     data.length > 0 && data.map((item) => {
                         return (
-                            <div key={item.key} className="bg-white shadow-sm rounded h-[320px] lg:h-[350px] text-center p-2">
+                            <div key={item.id} className="bg-white shadow-sm rounded h-[320px] lg:h-[350px] text-center p-2">
                                 <Link className="flex items-center flex-col" href={`/mag/${item?.slug}`}>
                                     <div className="relative h-40 w-full rounded overflow-hidden">
                                         <div className="relative w-full h-40">
