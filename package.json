@@ -21,6 +21,7 @@
     "react-dom": "^18",
     "react-range-slider-input": "^3.0.7",
     "react-toastify": "^11.0.2",
+    "swiper": "^11.2.4",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

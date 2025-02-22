@@ -24,7 +24,7 @@ export function FastCategories() {
         },
     ]
     return (
-        <div className="my-8">
+        <div className="my-8 hidden lg:block">
             <div className="flex items-center justify-center flex-col md:flex-row">
                 {
                     Categories.map((item, index) => {

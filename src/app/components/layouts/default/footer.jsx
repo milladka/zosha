@@ -29,11 +29,13 @@ export function Footer() {
                                 </Link> */}
                             </div>
 
-                            <div className="mt-5">
+                            <div className="mt-5 text-center space-y-2">
 
                                 <Link className="inline-block text-sm" href="/terms">قوانین و مقررات</Link>
                                 <Link className="inline-block mr-4 text-sm" href="/privacy-policy">حریم خصوصی</Link>
                                 <Link className="inline-block mr-4 text-sm" href="/faq">سوالات متداول</Link>
+                                <Link className="inline-block mr-4 text-sm" href="/contact-us">تماس با ما</Link>
+                                <Link className="inline-block mr-4 text-sm" href="/about-us">درباره ما</Link>
 
                             </div>
 
