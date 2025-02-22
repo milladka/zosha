@@ -1,4 +1,5 @@
 "use client"
+import { MAG_URL } from "@/app/config";
 import AxiosInstance from "@/app/config/axiosInstance";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,10 +7,10 @@ import { useEffect, useState } from "react";
 
 export function RecentMag() {
 
-    const [data, setData] = useState([])
-
+    const [data, setData] = useState([]);
+    
     useEffect(() => {
-        AxiosInstance.get('https://keyhantex.ir/drzoshamag/wp-json/wp/v2/posts?_fields=id,slug,excerpt,title,featured_media_src_url,featured_media,featured_media_src_url')
+        AxiosInstance.get(`${MAG_URL}/wp-json/wp/v2/posts?_fields=id,slug,excerpt,title,featured_media_src_url,featured_media,featured_media_src_url&per_page=4`)
             .then(res => {
                 setData(res.data);
             })
