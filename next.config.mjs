@@ -7,6 +7,11 @@ const nextConfig = {
                 hostname: 'keyhantex.ir',
                 pathname: '/drzosha/loader/image/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'keyhantex.ir',
+                pathname: '/drzoshamag/wp-content/uploads/**',
+            },
         ],
     }
 };
