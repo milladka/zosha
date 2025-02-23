@@ -10,9 +10,9 @@ export function Footer() {
         <footer className="mt-5 bg-violet-950 min-h-80 w-full relative">
             <div className="relative z-30 ">
 
-                <div className="container mx-auto py-20">
+                <div className="container mx-auto p-2 lg:p-5 py-20">
 
-                    <div className="text-white grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                    <div className="text-white grid grid-cols-1 xl:grid-cols-2 gap-6">
 
                         <div className="p-3 md:p-0">
                             <Image src={'/logo-light.png'} alt="logo dr zosha" width={100} height={100} />

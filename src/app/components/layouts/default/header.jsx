@@ -22,7 +22,7 @@ export function HeaderDefault() {
                     <div className="flex-1 hidden md:flex items-center justify-between px-5">
                         <div>
                             {Menus.map((item, index) => (
-                                <Link className="font-medium mx-2 text-sm inline-block hover:text-violet-700 transition" key={index} href={item.url}>{item.text}</Link>
+                                <Link className="font-medium mx-1 lg:mx-2 text-xs xl:text-sm inline-block hover:text-violet-700 transition" key={index} href={item.url}>{item.text}</Link>
                             ))}
                         </div>
                         <div className="flex items-center justify-center">

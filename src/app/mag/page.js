@@ -18,7 +18,7 @@ export default async function MagPage() {
         })
     return (
         <div className="container mx-auto p-2">
-            <div className="p-2 md:px-20 pt-2 md:pt-10 pb-14">
+            <div className="p-2 md:px-24 xl:px-48 pt-2 md:pt-10 pb-14">
                 <div className="bg-white p-4 rounded-lg shadow-sm mb-3">
                     <div>
                         <h1 className="font-bold text-sm lg:text-lg text-violet-950">بانک سلامت</h1>
@@ -28,7 +28,7 @@ export default async function MagPage() {
                     </div>
                 </div>
                 <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-5">
                         {
                             specialties.map((item) => (
                                 <div key={item.id} className="bg-white border shadow-sm rounded-lg text-center p-2">

@@ -41,6 +41,11 @@ export function Clinics() {
                             width: 1160,
                             slidesPerView: 3,
                         },
+                        768: {
+                            spaceBetween: 25,
+                            width: 768,
+                            slidesPerView: 3,
+                        }
                     }}
                     slidesPerView={1}
                     dir="rtl"

@@ -49,7 +49,7 @@ export default function SearchComponent() {
     return (
         <div className="container mx-auto p-2">
 
-            <div className="my-5 md:my-5">
+            <div className="my-5 md:my-8">
                 <Breadcrumbs pages={[{ title: 'رزرو نوبت و مشاوره' }]} />
             </div>
 
@@ -59,7 +59,7 @@ export default function SearchComponent() {
 
             <div className="my-8 grid grid-cols-12 gap-8">
 
-                <div className="hidden md:block col-span-3 sticky top-32" style={{ maxHeight: 'calc(100vh - 118px - 32px)' }}>
+                <div className="hidden lg:block col-span-3 sticky top-32" style={{ maxHeight: 'calc(100vh - 118px - 32px)' }}>
                     <div className="bg-white rounded-lg shadow">
                         <div className="p-3">
                             <div className="font-bold">فیلتر‌ها</div>
@@ -77,7 +77,7 @@ export default function SearchComponent() {
 
                 </div>
 
-                <div className="col-span-12 md:col-span-9">
+                <div className="col-span-12 lg:col-span-9">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                         {

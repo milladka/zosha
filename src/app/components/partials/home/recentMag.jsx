@@ -41,6 +41,11 @@ export function RecentMag() {
                             width: 1160,
                             slidesPerView: 3,
                         },
+                        768: {
+                            spaceBetween: 25,
+                            width: 768,
+                            slidesPerView: 3,
+                        }
                     }}
                     slidesPerView={1}
                     dir="rtl"
@@ -54,10 +59,10 @@ export function RecentMag() {
                     {
                         data.length > 0 && data.map((item) => {
                             return (
-                                <SwiperSlide key={item.id} className="h-[320px] lg:h-[350px]">
-                                    <div className="bg-white shadow-sm rounded h-[320px] lg:h-[350px] text-center p-2">
-                                        <div className="relative h-52 w-full rounded overflow-hidden">
-                                            <div className="relative w-full h-52">
+                                <SwiperSlide key={item.id} className="">
+                                    <div className="bg-white shadow-sm rounded text-center p-2">
+                                        <div className="relative w-full rounded overflow-hidden">
+                                            <div className="relative w-full h-40 xl:h-52">
                                                 <Image src={item?.featured_media_src_url} alt="clinic-dr-zosha" layout="fill" />
                                             </div>
                                         </div>

@@ -19,7 +19,7 @@ export default function Home() {
           تلاش ما دسترسی سریعتر و آسان تر شما به خدمات پزشکی است
         </span>
       </div>
-      <div className="container mx-auto px-4 lg:px-0">
+      <div className="container mx-auto px-4 lg:px-2">
         <FastAccess />
         <FastCategories />
         <PopularTakhasos />

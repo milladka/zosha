@@ -37,10 +37,10 @@ export default function GroupCenterPage() {
     return (
         <>
             <div className="container mx-auto p-2">
-                <div className="my-4 md:my-5">
+                <div className="my-4 md:my-8 xl:my-10">
                     <Breadcrumbs pages={[{ title: 'مراکز درمانی', url: '/center/' }, { title: group?.name }]} />
                 </div>
-                <div className="p-2 md:px-48 pt-2 md:pt-5 pb-14">
+                <div className="p-2 md:px-24 xl:px-48 pt-2 md:pt-5 pb-14">
                     <div className="bg-white p-4 lg:p-7 rounded-lg shadow-sm">
                         <h1 className="font-bold text-sm lg:text-lg text-violet-950">{group?.name || "در حال بارگذاری..."}</h1>
                         <div className="mt-2">

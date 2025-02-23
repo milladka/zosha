@@ -28,6 +28,10 @@ export function PopularTakhasos() {
                             width: 1160,
                             slidesPerView: 4,
                         },
+                        768: {
+                            width: 768,
+                            slidesPerView: 3,
+                        }
                     }}
                     slidesPerView={1}
                     dir="rtl"
