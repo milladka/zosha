@@ -12,6 +12,10 @@ export const Menus = [
         url: '/specialties'
     },
     {
+        text: 'محاسبه‌گر اقساط',
+        url: '/installment_calculator'
+    },
+    {
         text: 'مجله سلامت',
         url: '/mag'
     },

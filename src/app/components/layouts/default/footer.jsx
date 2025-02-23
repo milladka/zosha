@@ -34,8 +34,9 @@ export function Footer() {
                                 <Link className="inline-block text-sm" href="/terms">قوانین و مقررات</Link>
                                 <Link className="inline-block mr-4 text-sm" href="/privacy-policy">حریم خصوصی</Link>
                                 <Link className="inline-block mr-4 text-sm" href="/faq">سوالات متداول</Link>
-                                <Link className="inline-block mr-4 text-sm" href="/contact-us">تماس با ما</Link>
-                                <Link className="inline-block mr-4 text-sm" href="/about-us">درباره ما</Link>
+                                <Link className="inline-block mr-4 text-sm" href="/installment_calculator">محاسبه‌گر اقساط</Link>
+                                <Link className="inline-block mr-4 text-sm" href="/contact-us">تماس‌ با‌ ما</Link>
+                                <Link className="inline-block mr-4 text-sm" href="/about-us">درباره‌ما</Link>
 
                             </div>
 
@@ -59,7 +60,7 @@ export function Footer() {
                                 <Link href="" className="rounded-full bg-violet-900 p-2 hover:bg-violet-700 transition-all">
                                     <TelegramIcon />
                                 </Link>
-                                <Link href="" className=" mr-5 rounded-full bg-violet-900 p-2 hover:bg-violet-700 transition-all">
+                                <Link href="https://www.instagram.com/drzosha?igsh=MWs1a2U4Z2J3NnMz" target="_blank" className="mr-5 rounded-full bg-violet-900 p-2 hover:bg-violet-700 transition-all">
                                     <InstagramIcon />
                                 </Link>
                                 <Link href="" className=" mr-5 rounded-full bg-violet-900 p-2 hover:bg-violet-700 transition-all">
