@@ -8,6 +8,7 @@ import Image from "next/image";
 import { PICTURE_URL } from "@/app/constant";
 import { CircleX, Hospital, MapPin, MapPinned, Phone } from "lucide-react";
 import { Map, Marker } from "pigeon-maps"
+import DOMPurify from 'dompurify';
 
 export default function GroupCenterPage() {
     const { slug } = useParams();
@@ -75,7 +76,7 @@ export default function GroupCenterPage() {
                                                     <div className="font-bold text-sm flex items-center justify-center lg:justify-start gap-1 px-2 text-blue-600 w-full"><Phone className="rotate-[250deg] hidden lg:block" width={15} /> {item?.phone} </div>
                                                     <div className="text-slate-500 text-xs lg:text-sm flex items-center gap-1 text-center lg:text-start border rounded-full py-1 px-2 w-full"><MapPin className="hidden lg:block" width={15} /> {item?.city} - {item?.address} </div>
                                                     <div className="w-full overflow-hidden h-15">
-                                                        <div dangerouslySetInnerHTML={{ __html: item?.description }} style={{ overflow: 'hidden', whiteSpace: 'pre-line', textOverflow: 'ellipsis' }} className="text-xs font-extralight text-gray-500 p-2 leading-5">
+                                                        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item?.description || '') }} style={{ overflow: 'hidden', whiteSpace: 'pre-line', textOverflow: 'ellipsis' }} className="text-xs font-extralight text-gray-500 p-2 leading-5">
                                                         </div>
                                                     </div>
                                                     {

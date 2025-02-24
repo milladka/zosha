@@ -13,22 +13,17 @@ export default function Terms() {
             <div className="my-2 md:my-5">
                 <Breadcrumbs pages={[{ title: 'قوانین و مقررات' }]} />
             </div>
-            <div className="my-2 rounded-lg bg-white shadow p-4">
-                <div className="font-bold text-gray-600">قوانین و مقررات</div>
+            <div className="my-2 rounded-lg bg-white shadow p-4 lg:p-8">
+                <div className="font-bold text-gray-600 mb-2">قوانین و مقررات</div>
+                <div className="sc-19a346ee-5 diIbX text-xs lg:text-md leading-8 text-slate-600">
+                    از حضور شما در دکتر زوشا ممنونیم. امیدواریم حالتان همیشه خوب باشد. در صورت نیاز به دریافت نوبت از پزشک، مشاوره تلفنی و متنی با متخصصان، استفاده ازخدمات کلینیکی و پارکلینیکی و هم&zwnj;چنین دکتر زوشا بیمه، لازم است که قوانین و
+                    شرایط دکتر زوشا را بخوانید و در هنگام ثبت&zwnj;نام تایید کنید.
+                </div>
             </div>
-            <div className="my-8 p-2 md:px-5 md:py-10 rounded-lg shadow leading-8 bg-white text-slate-800">
-                <article className="sc-19a346ee-2 bSQBLU">
-                    <section id="c0" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb"></h2></div>
-                        <div className="sc-19a346ee-8 dTCaEr">
-                            <div className="sc-19a346ee-5 diIbX">
-                                از حضور شما در دکتر زوشا ممنونیم. امیدواریم حالتان همیشه خوب باشد. در صورت نیاز به دریافت نوبت از پزشک، مشاوره تلفنی و متنی با متخصصان، استفاده ازخدمات کلینیکی و پارکلینیکی و هم&zwnj;چنین دکتر زوشا بیمه، لازم است که قوانین و
-                                شرایط دکتر زوشا را بخوانید و در هنگام ثبت&zwnj;نام تایید کنید.
-                            </div>
-                        </div>
-                    </section>
+            <div className="my-8 p-2 md:px-10 md:py-10 rounded-lg shadow leading-8 bg-white text-slate-800">
+                <article className="sc-19a346ee-2 bSQBLU text-xs lg:text-md leading-8 text-slate-600 space-y-3">
                     <section id="c1" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">قوانین عضویت در دکتر زوشا</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">قوانین عضویت در دکتر زوشا</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div className="sc-19a346ee-5 diIbX">
                                 دکتر زوشا بستری برای دریافت خدمات پزشکی، سلامت، درمان و زیبایی است. برای عضویت یا استفاده از خدمات دکتر زوشا لازم است قوانین و شرایط دکتر زوشا را مطالعه کرده و آنها را تایید کنید. ثبت&zwnj;نام در دکتر زوشا به منزله آگاهی و تایید
@@ -46,7 +41,7 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="c2" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">قوانین و شرایط حساب کاربری</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">قوانین و شرایط حساب کاربری</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div className="sc-19a346ee-5 diIbX">برای ثبت نوبت لازم است حساب کاربری داشته باشید. قوانین و شرایط برای راحتی، شفافیت و امنیت شماست:</div>
                             <ul className="sc-ba68fee7-0 dlhLKk">
@@ -71,17 +66,17 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="c3" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">قوانین پرداخت و اخذ نوبت</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">قوانین پرداخت و اخذ نوبت</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div className="sc-19a346ee-5 diIbX">ممنونیم که از دکتر زوشا نوبت گرفته&zwnj;اید. اگر به هر دلیلی نیاز دارد که نوبت اخذ شده را لغو کنید، لطفا با دقت موارد زیر را مطالعه نمایید:</div>
                             <div>
-                                <h3 className="sc-19a346ee-7 kqfKoe">نکته&zwnj;ی مهم</h3>
+                                <h3 className="sc-19a346ee-7 kqfKoe underline-offset-[6px] underline">نکته&zwnj;ی مهم</h3>
                                 <ul className="sc-ba68fee7-0 dlhLKk">
                                     <li className="sc-ba68fee7-1 edGNry">دکتر زوشا بستری برای موارد اورژانسی نیست. در این شرایط باید به نزدیک&zwnj;ترین بیمارستان یا درمانگاه مراجعه کنید و یا با شماره ۱۱۵ تماس بگیرید.</li>
                                 </ul>
                             </div>
                             <div>
-                                <h3 className="sc-19a346ee-7 kqfKoe">لغو نوبت مطب:</h3>
+                                <h3 className="sc-19a346ee-7 kqfKoe underline-offset-[6px] underline">لغو نوبت مطب</h3>
                                 <ul className="sc-ba68fee7-0 dlhLKk">
                                     <li className="sc-ba68fee7-1 edGNry">
                                         بیشتر از ۲۴ ساعت تا نوبت ملاقات باقی مانده است: در این صورت کل مبلغ پرداخت شده به&zwnj;صورت اعتبار برای خدمات پزشکی آتی به حساب کاربری&zwnj;تان افزوده خواهد شد. این اعتبار قابل&zwnj;استفاده برای نوبت&zwnj;گیری از
@@ -96,7 +91,7 @@ export default function Terms() {
                                 </ul>
                             </div>
                             <div>
-                                <h3 className="sc-19a346ee-7 kqfKoe">لغو مشاوره تلفنی:</h3>
+                                <h3 className="sc-19a346ee-7 kqfKoe underline-offset-[6px] underline">لغو مشاوره تلفنی:</h3>
                                 <ul className="sc-ba68fee7-0 dlhLKk">
                                     <li className="sc-ba68fee7-1 edGNry">
                                         بیشتر از ۱ ساعت تا زمان مشاوره تلفنی زمان باقی مانده است: در این صورت کل مبلغ پرداخت شده توسط شما به&zwnj;صورت اعتبار برای خدمات پزشکی آتی در حساب کاربری افزوده خواهد شد. این اعتبار قابل&zwnj;استفاده برای
@@ -106,13 +101,13 @@ export default function Terms() {
                                 </ul>
                             </div>
                             <div>
-                                <h3 className="sc-19a346ee-7 kqfKoe">لغو مشاوره متنی:</h3>
+                                <h3 className="sc-19a346ee-7 kqfKoe underline-offset-[6px] underline">لغو مشاوره متنی:</h3>
                                 <ul className="sc-ba68fee7-0 dlhLKk">
                                     <li className="sc-ba68fee7-1 edGNry">تا زمانی که مشاوره متنی خود را شروع نکرده&zwnj;اید و اولین پیام خود را نداده&zwnj;اید، امکان لغو مشاوره متنی برای شما فعال است و پس از آن این امکان، غیرفعال می&zwnj;شود.</li>
                                 </ul>
                             </div>
                             <div>
-                                <h3 className="sc-19a346ee-7 kqfKoe">لغو سفارش دکتر زوشا کلینیک:</h3>
+                                <h3 className="sc-19a346ee-7 kqfKoe underline-offset-[6px] underline">لغو سفارش دکتر زوشا کلینیک:</h3>
                                 <ul className="sc-ba68fee7-0 dlhLKk">
                                     <li className="sc-ba68fee7-1 edGNry">بیشتر از ۲۴ ساعت تا نوبت ملاقات باقی مانده است: در این صورت کل مبلغ پرداخت شده به اعتبار کاربری شما برگردانده می&zwnj;شود.</li>
                                     <li className="sc-ba68fee7-1 edGNry">کمتر از ۲۴ ساعت تا نوبت ملاقات باقی مانده است: در این حالت، هزینه&zwnj;ی پرداخت شده با کسر ۲۰ درصد به اعتبار کاربر برگردانده می&zwnj;شود</li>
@@ -121,7 +116,7 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="c4" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">قوانین و مقررات مشاوره متنی و تلفنی</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">قوانین و مقررات مشاوره متنی و تلفنی</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div className="sc-19a346ee-5 diIbX">
                                 دکتر زوشا صرفا بستر و زیرساخت مشاوره متنی و تلفنی را برای ارتباط بیمار و پزشک فراهم می&zwnj;کند. مسئولیت استفاده صحیح از این ابزار با شماست و هرگز نباید به&zwnj;عنوان جایگزین مراجعه حضوری تلقی گردد.
@@ -160,7 +155,7 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="c5" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">قوانین مربوط به خدمات کلینیکی و پاراکینیکی</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">قوانین مربوط به خدمات کلینیکی و پاراکینیکی</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div>
                                 <h3 className="sc-19a346ee-7 kqfKoe">قوانین و مقررات دکتر زوشا کلینیک:</h3>
@@ -188,7 +183,7 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="comments" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">قوانین و مقررات ثبت نظر</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">قوانین و مقررات ثبت نظر</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div>
                                 <h3 className="sc-19a346ee-7 kqfKoe">تجربه&zwnj;ی من: امتیازدهی به پزشکان</h3>
@@ -249,7 +244,7 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="c6" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">امنیت و حریم شخصی</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">امنیت و حریم شخصی</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div className="sc-19a346ee-5 diIbX">
                                 امنیت و حریم شخصی شما برای دکتر زوشا بسیار مهم است. به همین دلیل نظرات تنها با نام شما و بدون ذکر نام خانوادگی منتشر می&zwnj;شود. همچنین اطلاعات وارد شده از طرف شما هیچگاه با اسم حقیقی در اختیار پزشک قرار نمی&zwnj;گیرد.
@@ -257,7 +252,7 @@ export default function Terms() {
                         </div>
                     </section>
                     <section id="c7" className="sc-19a346ee-3 OjFQP">
-                        <div className="sc-19a346ee-4 lcoxIx"><h2 className="sc-19a346ee-6 czLLNb">حقوق معنوی و مالکیت محتوا</h2></div>
+                        <div className="sc-19a346ee-4 font-bold mb-3"><h2 className="sc-19a346ee-6 text-sm lg:text-lg">حقوق معنوی و مالکیت محتوا</h2></div>
                         <div className="sc-19a346ee-8 dTCaEr">
                             <div className="sc-19a346ee-5 diIbX">کلیه حقوق مادی و معنوی این وب&zwnj;سایت متعلق به شرکت آینده اندیشان به آفرید است و هرگونه کپی&zwnj;برداری و یا مشابه&zwnj;سازی از نام این سایت پیگرد قانونی دارد.</div>
                         </div>

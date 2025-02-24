@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
             <div className="my-2 rounded-lg bg-white shadow p-4">
                 <div className="font-bold text-gray-600">حریم خصوصی</div>
             </div>
-            <div className="my-8 p-2 md:px-5 md:py-10 rounded-lg shadow leading-8 bg-white text-slate-800">
+            <div className="my-8 p-2 md:px-5 md:py-10 rounded-lg shadow bg-white  text-xs lg:text-md leading-8 text-slate-600 space-y-4">
                 <p>دکتر زوشا به اطلاعات خصوصی اشخاصى که از خدمات سایت استفاده می&rlm;&zwnj;کنند، احترام گذاشته و از آن محافظت می&rlm;&zwnj;کند.</p>
                 <p>
                     دکتر زوشا متعهد می&rlm;&zwnj;شود در حد توان از حریم شخصی شما دفاع کند و در این راستا، فنّاوری موردنیاز برای هرچه مطمئن&rlm;&zwnj;تر و امن&rlm;&zwnj;تر شدن استفاده شما از سایت را، توسعه دهد. با استفاده از سایت دکتر زوشا، شما رضایت خود
