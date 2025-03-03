@@ -9,6 +9,7 @@ import { PICTURE_URL } from "@/app/constant";
 import { CircleX, Hospital, MapPin, MapPinned, Phone } from "lucide-react";
 import { Map, Marker } from "pigeon-maps"
 import DOMPurify from 'dompurify';
+import { MapNavigation } from "@/app/components/utils/mapNavigation";
 
 export default function GroupCenterPage() {
     const { slug } = useParams();
@@ -80,7 +81,14 @@ export default function GroupCenterPage() {
                                                         </div>
                                                     </div>
                                                     {
-                                                        item?.latitude != 0 && item?.longitude != 0 && <div className="py-1 px-2"><button onClick={() => handleMap(item?.latitude, item?.longitude)} className="text-blue-600 flex text-xs items-center gap-1"><MapPinned width={17} />نمایش روی نقشه</button></div>
+                                                        item?.latitude != 0 && item?.longitude != 0 &&
+                                                        <>
+                                                            <div className="py-1 px-2">
+                                                                <button onClick={() => handleMap(item?.latitude, item?.longitude)} className="text-blue-600 flex text-xs items-center gap-1 mb-2 "><MapPinned width={17} />نمایش روی نقشه</button>
+                                                                <MapNavigation lat={item?.latitude} lng={item?.longitude} />
+                                                                </div>
+
+                                                        </>
                                                     }
                                                 </div>
                                             </div>
