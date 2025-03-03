@@ -31,14 +31,13 @@ export default async function SingleMagPage({ params }) {
         })
     return (
         <>
-            <title>{item?.title?.rendered} - دکتر زوشا</title>
             <div className="container mx-auto p-2">
                 <div className="p-2 md:px-20 pt-2 md:pt-10 pb-14">
                     <div className="bg-white p-4 rounded-lg shadow-sm">
                         <div className="grid grid-cols-1 mt-5">
 
                             <div className="bg-white shadow-sm rounded-lg p-2">
-                                <div className="text-lg lg:text-2xl leading-9 font-bold hover:text-violet-800 transition-all mb-5">{item?.title?.rendered}</div>
+                                <h1 className="text-lg lg:text-2xl leading-9 font-bold hover:text-violet-800 transition-all mb-5">{item?.title?.rendered}</h1>
                                 <div className="relative h-[180px] lg:h-[500px] w-full rounded overflow-hidden">
                                     <div className="relative w-full h-[180px] lg:h-[500px] rounded">
                                         {

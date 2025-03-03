@@ -10,6 +10,7 @@ import { CircleX, Hospital, MapPin, MapPinned, Phone } from "lucide-react";
 import { Map, Marker } from "pigeon-maps"
 import DOMPurify from 'dompurify';
 import { MapNavigation } from "@/app/components/utils/mapNavigation";
+import Link from "next/link";
 
 export default function GroupCenterPage() {
     const { slug } = useParams();
@@ -73,7 +74,7 @@ export default function GroupCenterPage() {
                                                     </div>
                                                 </div>
                                                 <div className="p-1 flex items-start justify-center flex-col gap-2 w-full">
-                                                    <div className="font-bold px-2 text-center lg:text-start w-full text-lg text-slate-800">{item?.name}</div>
+                                                    <Link href={`/center/${item?.slug}`} className="font-bold px-2 text-center lg:text-start w-full text-lg text-slate-800">{item?.name}</Link>
                                                     <div className="font-bold text-sm flex items-center justify-center lg:justify-start gap-1 px-2 text-blue-600 w-full"><Phone className="rotate-[250deg] hidden lg:block" width={15} /> {item?.phone} </div>
                                                     <div className="text-slate-500 text-xs lg:text-sm flex items-center gap-1 text-center lg:text-start border rounded-full py-1 px-2 w-full"><MapPin className="hidden lg:block" width={15} /> {item?.city} - {item?.address} </div>
                                                     <div className="w-full overflow-hidden h-15">

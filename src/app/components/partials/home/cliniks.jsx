@@ -81,7 +81,7 @@ export function Clinics() {
                                                 <div className="bg-blue-900 opacity-10 absolute top-0 left-0 w-full h-full hover:opacity-0 transition-all"></div>
                                             </div>
                                             <div className="font-bold p-2 text-violet-700 overflow-hidden">
-                                                <Link href={`/center`} className="text-sm">{res.name}</Link>
+                                                <Link href={`/center/${res.slug}`} className="text-sm">{res.name}</Link>
                                                 <div className="my-2">
                                                     <div className="text-violet-900 bg-violet-100 rounded-full py-1 text-[9px]">{res.category}</div>
                                                 </div>
