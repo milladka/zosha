@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const DynamicSelect = ({ options, onSelect, label, selectedOption, error = false }) => {
+const DynamicSelect = ({ options, onSelect, label, selectedOption, error = false, all = false, allMessage = '' }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState(selectedOption || "");
@@ -14,10 +14,14 @@ const DynamicSelect = ({ options, onSelect, label, selectedOption, error = false
 
     const showLabel = () => {
         const objSelected = options.find(item => item.value === selected);
-        return objSelected?.label || "یک گزینه انتخاب کنید";
+        return selected !=  '' ? objSelected?.label : all ? allMessage : "یک گزینه انتخاب کنید";
     };
 
-    const filteredOptions = options.filter(option =>
+    const enhancedOptions = all
+        ? [{ label: allMessage || "همه موارد", value: "" }, ...options]
+        : options;
+
+    const filteredOptions = enhancedOptions.filter(option =>
         option.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -55,7 +59,7 @@ const DynamicSelect = ({ options, onSelect, label, selectedOption, error = false
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <div className="max-h-40 overflow-y-auto">
+                    <div className="max-h-40 overflow-y-auto">                        
                         {filteredOptions.map(option => (
                             <div
                                 key={option.value}

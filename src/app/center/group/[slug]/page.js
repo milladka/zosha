@@ -22,7 +22,7 @@ export default function GroupCenterPage() {
     const [open, setOpen] = useState(false);
     const fetchedRef = useRef(false);
     const [cities, setCities] = useState([]);
-    const [city_id, setCityId] = useState(284);
+    const [city_id, setCityId] = useState('');
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(true);
 
@@ -101,7 +101,7 @@ export default function GroupCenterPage() {
                             />
                         </div>
                         <div className="flex items-center gap-2 justify-center">
-                            <DynamicSelect selectedOption={city_id} options={cities} onSelect={(value) => setCityId(value)} label={'شهر  را انتخاب کنید'} />
+                            <DynamicSelect all={true} allMessage="همه شهرهای ایران" selectedOption={city_id} options={cities} onSelect={(value) => setCityId(value)} label={'شهر  را انتخاب کنید'} />
                             <button onClick={() => search()} className="text-violet-600 hover:text-violet-800 p-2">
                                 <Search width={18} />
                             </button>
