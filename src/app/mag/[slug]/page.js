@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import AxiosInstance from "@/app/config/axiosInstance";
 import { MAG_URL } from "@/app/config";
+import ContentPost from "../hook/content";
 
 export async function generateMetadata({ params, searchParams }, parent) {
     const { slug } = params;
@@ -46,7 +47,8 @@ export default async function SingleMagPage({ params }) {
                                     </div>
                                 </div>
                                 <div className="mt-2 py-2">
-                                    <div className="text-slate-900 text-sm leading-9 mt-2" dangerouslySetInnerHTML={{ __html: item?.content?.rendered }}></div>
+                                    <ContentPost content={item?.content?.rendered} />
+                                    {/* <div className="text-slate-900 text-sm leading-9 mt-2" dangerouslySetInnerHTML={{ __html: item?.content?.rendered }}></div> */}
                                 </div>
                             </div>
 
